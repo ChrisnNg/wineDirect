@@ -13,7 +13,7 @@ The goal of this exercise is to evaluate your coding style and OO design skills.
 
 Assumptions-
 
-Create a Point of sales system.
+Create a Grocery-store - Point of sales system.
 
 Connection to a backend so that # of items sold and quantity is persistent.
 

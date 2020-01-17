@@ -7,16 +7,12 @@ export default function(props) {
     <Navbar bg="dark">
       <Navbar.Brand href="#home">
         <img
-          src={require("./wineglass.png")}
-          width="30"
+          src={require("./Walmart_logo.svg")}
+          width="90"
           height="30"
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
-        <b>
-          {" "}
-          <i>WineDirect</i>
-        </b>
       </Navbar.Brand>
       <Nav className="ml-auto">
         <i
