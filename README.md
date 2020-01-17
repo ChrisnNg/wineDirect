@@ -16,3 +16,5 @@ Assumptions-
 Create a Point of sales system.
 
 Connection to a backend so that # of items sold and quantity is persistent.
+
+Because the goal of this exercise is to evaluate my coding style and OO design skills, i will assume that an administrative panel will be out of scope.

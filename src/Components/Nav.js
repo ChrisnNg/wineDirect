@@ -6,7 +6,7 @@ export default function(props) {
     <Navbar bg="dark">
       <Navbar.Brand href="#home">
         <img
-          src="../logo.svg"
+          src={require("../logo.svg")}
           width="30"
           height="30"
           className="d-inline-block align-top"
