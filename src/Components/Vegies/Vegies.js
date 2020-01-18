@@ -11,6 +11,30 @@ import eggplant from "./eggplant.jpg";
 import broccoli from "./broccoli.jpg";
 
 export default function(props) {
+  const addToCart = props.addToCart;
+
+  const itemList = [
+    { item: "spinach", image: spinach, clickEvent: addToCart, pricePerUnit: 2 }
+  ];
+
+  function CardBuilder(itemList) {
+    const html = [];
+    let count = 0;
+    for (const item of itemList) {
+      html.push(
+        <BuildCard
+          key={count}
+          item={item.item}
+          image={item.image}
+          clickEvent={addToCart}
+          pricePerUnit={[item].pricePerUnit}
+        />
+      );
+      count++;
+    }
+    return html;
+  }
+
   return (
     <section>
       <div>Vegie section</div>
@@ -29,6 +53,7 @@ export default function(props) {
           image={avocado}
           clickEvent={props.addToCart}
           pricePerUnit={4.5}
+          calByWeight={true}
         />
 
         <BuildCard
@@ -58,6 +83,8 @@ export default function(props) {
           clickEvent={props.addToCart}
           pricePerUnit={3.0}
         />
+
+        {CardBuilder(itemList)}
       </CardDeck>
     </section>
   );
