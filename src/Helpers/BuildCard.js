@@ -27,16 +27,25 @@ function BuildCard(props) {
   );
 }
 
-export default function CardBuilder(itemList, clickEvent) {
+export default function CardBuilder(itemList, addItem) {
   const html = [];
   let count = 0;
+
+  function addWeight(item) {
+    console.log("add weight function called for ", item);
+  }
+
   for (const item of itemList) {
+    if (item.calByWeight) {
+      console.log("cal by weight for ", item);
+    }
+
     html.push(
       <BuildCard
         key={count}
         item={item.item}
         image={item.image}
-        clickEvent={clickEvent}
+        clickEvent={item.calByWeight ? addWeight : addItem}
         pricePerUnit={item.pricePerUnit}
         calByWeight={item.calByWeight}
       />
