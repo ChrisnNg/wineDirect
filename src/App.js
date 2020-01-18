@@ -224,14 +224,21 @@ class App extends Component {
   };
 
   applyCoupon = () => {
-    let final_amount = 0;
+    let coupon_amount = 5;
+
     this.setState(
-      {
-        ...this.state,
-        cart: { total: { quantity: 0, price: 0 } }
-      },
+      prevState => ({
+        ...prevState,
+        cart: {
+          ...prevState.cart,
+          total: {
+            ...prevState.cart.total,
+            discount: (prevState.cart.total.discount += coupon_amount)
+          }
+        }
+      }),
       () => {
-        console.log(this.state);
+        console.log("current cart updated to=", this.state.cart);
       }
     );
   };
@@ -306,6 +313,7 @@ class App extends Component {
             cart={this.state.cart}
             resetCart={this.resetCart}
             closeCart={this.closeCart}
+            applyCoupon={this.applyCoupon}
           />
 
           <div className="App-header">

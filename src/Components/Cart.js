@@ -13,6 +13,9 @@ export default function(props) {
             {item} x {props.itemList[item].quantity} at $
             {props.itemList[item].pricePerUnit}ea = $
             {props.itemList[item].quantity * props.itemList[item].pricePerUnit}
+            {props.itemList[item].discount
+              ? "Discount offered " + props.itemList[item].discount
+              : null}
           </article>
         );
         key += 1;
@@ -28,7 +31,8 @@ export default function(props) {
       <br />
       Total # Items:{props.itemList.total.quantity}
       <br />
-      Total Price: {props.itemList.total.price}
+      Subtotal: {props.itemList.total.price}
+      Total: {props.itemList.total.price - props.itemList.total.discount}
     </div>
   );
 }

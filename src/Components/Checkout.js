@@ -23,6 +23,9 @@ export default function(props) {
         <Button variant="secondary" onClick={props.closeCart}>
           Close
         </Button>
+        <Button variant="secondary" onClick={props.applyCoupon}>
+          Apply Coupons
+        </Button>
         <Button variant="primary" onClick={props.closeCart}>
           Checkout
         </Button>
