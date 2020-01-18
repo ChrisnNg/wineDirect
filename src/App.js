@@ -22,7 +22,7 @@ class App extends Component {
       ...this.intialState(),
       cart: { total: { quantity: 0, price: 0, discount: 0 } },
       showCart: false,
-      couponsUsed: null
+      couponsUsed: []
     };
   }
 
@@ -226,11 +226,49 @@ class App extends Component {
   applyCoupon = couponCode => {
     console.log(couponCode);
     let coupon_amount = 0;
+    let coupon_code = null;
 
+    console.log(
+      "does coupon exist in used array",
+      !this.state.couponsUsed.includes("100")
+    );
     switch (couponCode) {
-      case "123":
-        coupon_amount = 20;
-        toast.success("Coupon applied!");
+      case "100":
+        //Coupon for purchases $100 and up
+
+        if (!this.state.couponsUsed.includes("100")) {
+          if (this.state.cart.total.price >= 100) {
+            coupon_amount = 20;
+            coupon_code = couponCode;
+            toast.success("Coupon applied!");
+          } else {
+            toast.warning(
+              `Total amount is $${(this.state.cart.total.price - 100) *
+                -1} away from $100`
+            );
+          }
+        } else {
+          toast.warning("Coupon already applied");
+        }
+
+        break;
+      case "20":
+        //Coupon for purchases $20 and up
+        if (!this.state.couponsUsed.includes("20")) {
+          if (this.state.cart.total.price >= 20) {
+            coupon_amount = 4;
+            coupon_code = couponCode;
+            toast.success("Coupon applied!");
+          } else {
+            toast.warning(
+              `Total amount is $${(this.state.cart.total.price - 20) *
+                -1} away from $20`
+            );
+          }
+        } else {
+          toast.warning("Coupon already applied");
+        }
+
         break;
       default:
         toast.warning("Coupon invalid");
@@ -244,7 +282,8 @@ class App extends Component {
           ...prevState.cart.total,
           discount: (prevState.cart.total.discount += coupon_amount)
         }
-      }
+      },
+      couponsUsed: [...prevState, coupon_code]
     }));
   };
 
