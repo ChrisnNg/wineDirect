@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...this.intialState(), cart: null };
+    this.state = { ...this.intialState(), cart: {} };
   }
 
   intialState() {
@@ -44,16 +44,35 @@ class App extends Component {
     });
   };
 
-  addToCart = (item, quantitity) => {
-    this.setState(
-      {
-        ...this.state,
-        cart: { item: { name: item, quantitity } }
-      },
-      () => {
-        console.log("current cart updated to=", this.state.cart);
-      }
-    );
+  addToCart = (item, quantity) => {
+    if (this.state.cart[item]) {
+      this.setState(
+        {
+          ...this.state,
+          cart: {
+            ...this.state.cart,
+            [item]: {
+              name: item,
+              quantity: (this.state.cart[item].quantity += 1)
+            }
+          }
+        },
+        () => {
+          console.log("current cart updated to=", this.state.cart);
+        }
+      );
+    } else {
+      console.log("false triggered");
+      this.setState(
+        {
+          ...this.state,
+          cart: { ...this.state.cart, [item]: { name: item, quantity: 1 } }
+        },
+        () => {
+          console.log("current cart updated to=", this.state.cart);
+        }
+      );
+    }
   };
 
   handleSelection = selected => {

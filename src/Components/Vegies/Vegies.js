@@ -13,72 +13,41 @@ import broccoli from "./broccoli.jpg";
 export default function(props) {
   console.log("veggie props=", props);
 
-  function handleClick(item) {
-    console.log("click handled", item, props);
-    props.addToCart(item, 1);
-  }
-
   return (
     <section>
       <div>Vegie section</div>
       <Button onClick={() => props.goHome()}>Return</Button>
 
       <CardDeck>
-        <Card
-          body={false}
-          onClick={() => {
-            handleClick("Spinach");
-          }}
-        >
-          <Card.Img variant="top" src={spinach} />
-          <Card.Body>
-            <Card.Title>Spinach</Card.Title>
-          </Card.Body>
-        </Card>
+        <BuildCard
+          item="spinach"
+          image={spinach}
+          clickEvent={props.addToCart}
+        />
 
-        <Card
-          body={false}
-          onClick={() => {
-            handleClick("Avocado");
-          }}
-        >
-          <Card.Img variant="top" src={avocado} />
-          <Card.Body>
-            <Card.Title>Avocado</Card.Title>
-          </Card.Body>
-        </Card>
+        <BuildCard
+          item="avocado"
+          image={avocado}
+          clickEvent={props.addToCart}
+        />
 
-        <Card body={false}>
-          <Card.Img variant="top" src={carrot} />
-          <Card.Body>
-            <Card.Title>Carrot</Card.Title>
-          </Card.Body>
-        </Card>
+        <BuildCard item="carrot" image={carrot} clickEvent={props.addToCart} />
 
-        <Card body={false}>
-          <Card.Img variant="top" src={lettuce} />
-          <Card.Body>
-            <Card.Title>Carrot</Card.Title>
-          </Card.Body>
-        </Card>
-
-        <Card body={false}>
-          <Card.Img variant="top" src={eggplant} />
-          <Card.Body>
-            <Card.Title>Eggplant</Card.Title>
-          </Card.Body>
-        </Card>
-
-        <Card body={false}>
-          <Card.Img variant="top" src={broccoli} />
-          <Card.Body>
-            <Card.Title>Broccoli</Card.Title>
-          </Card.Body>
-        </Card>
+        <BuildCard
+          item="lettuce"
+          image={lettuce}
+          clickEvent={props.addToCart}
+        />
 
         <BuildCard
           item="eggplant"
           image={eggplant}
+          clickEvent={props.addToCart}
+        />
+
+        <BuildCard
+          item="broccoli"
+          image={broccoli}
           clickEvent={props.addToCart}
         />
       </CardDeck>
