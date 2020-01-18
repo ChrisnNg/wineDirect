@@ -14,7 +14,42 @@ export default function(props) {
   const addToCart = props.addToCart;
 
   const itemList = [
-    { item: "spinach", image: spinach, clickEvent: addToCart, pricePerUnit: 2 }
+    {
+      item: "spinach",
+      image: spinach,
+      clickEvent: addToCart,
+      pricePerUnit: 5.0
+    },
+    {
+      item: "avocado",
+      image: avocado,
+      clickEvent: addToCart,
+      pricePerUnit: 4.5
+    },
+    {
+      item: "carrot",
+      image: carrot,
+      clickEvent: addToCart,
+      pricePerUnit: 2.15
+    },
+    {
+      item: "lettuce",
+      image: lettuce,
+      clickEvent: addToCart,
+      pricePerUnit: 2.0
+    },
+    {
+      item: "eggplant",
+      image: eggplant,
+      clickEvent: addToCart,
+      pricePerUnit: 4.0
+    },
+    {
+      item: "broccoli",
+      image: broccoli,
+      clickEvent: addToCart,
+      pricePerUnit: 3.0
+    }
   ];
 
   function CardBuilder(itemList) {
@@ -40,52 +75,7 @@ export default function(props) {
       <div>Vegie section</div>
       <Button onClick={() => props.goHome()}>Return</Button>
 
-      <CardDeck>
-        <BuildCard
-          item="spinach"
-          image={spinach}
-          clickEvent={props.addToCart}
-          pricePerUnit={5.0}
-        />
-
-        <BuildCard
-          item="avocado"
-          image={avocado}
-          clickEvent={props.addToCart}
-          pricePerUnit={4.5}
-          calByWeight={true}
-        />
-
-        <BuildCard
-          item="carrot"
-          image={carrot}
-          clickEvent={props.addToCart}
-          pricePerUnit={2.15}
-        />
-
-        <BuildCard
-          item="lettuce"
-          image={lettuce}
-          clickEvent={props.addToCart}
-          pricePerUnit={2.0}
-        />
-
-        <BuildCard
-          item="eggplant"
-          image={eggplant}
-          clickEvent={props.addToCart}
-          pricePerUnit={4.0}
-        />
-
-        <BuildCard
-          item="broccoli"
-          image={broccoli}
-          clickEvent={props.addToCart}
-          pricePerUnit={3.0}
-        />
-
-        {CardBuilder(itemList)}
-      </CardDeck>
+      <CardDeck>{CardBuilder(itemList)}</CardDeck>
     </section>
   );
 }
