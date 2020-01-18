@@ -12,6 +12,7 @@ import broccoli from "./broccoli.jpg";
 
 export default function(props) {
   const addToCart = props.addToCart;
+  const itemCart = props.itemCart;
 
   const itemList = [
     {
@@ -52,7 +53,7 @@ export default function(props) {
       <div>Vegie section</div>
       <Button onClick={() => props.goHome()}>Return</Button>
 
-      <CardDeck>{CardBuilder(itemList, addToCart)}</CardDeck>
+      <CardDeck>{CardBuilder(itemList, addToCart, itemCart)}</CardDeck>
     </section>
   );
 }

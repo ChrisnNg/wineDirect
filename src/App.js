@@ -68,7 +68,7 @@ class App extends Component {
             },
             total: {
               ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += quantity),
+              quantity: (this.state.cart.total.quantity += 1),
               price: (this.state.cart.total.price += quantity * pricePerUnit)
             }
           }
@@ -79,6 +79,7 @@ class App extends Component {
       );
     } else {
       console.log("new item added to cart");
+
       this.setState(
         {
           ...this.state,
@@ -87,7 +88,7 @@ class App extends Component {
             [item]: {
               ...this.state.cart[item],
               name: item,
-              quantity: 1,
+              quantity: quantity,
               calByWeight,
               pricePerUnit,
               totalPrice: quantity * pricePerUnit
@@ -222,7 +223,11 @@ class App extends Component {
 
           {this.state.isEmptyState && <Home trigger={this.changeState} />}
           {this.state["Fruits and Vegetables"] && (
-            <Vegies goHome={this.goHome} addToCart={this.addToCart} />
+            <Vegies
+              goHome={this.goHome}
+              addToCart={this.addToCart}
+              itemCart={this.state.cart}
+            />
           )}
         </section>
       </div>
