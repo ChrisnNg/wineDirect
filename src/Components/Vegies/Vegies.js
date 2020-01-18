@@ -1,5 +1,5 @@
 import React from "react";
-import { CardDeck, Card, Button } from "react-bootstrap";
+import { CardGroup, Button } from "react-bootstrap";
 
 import CardBuilder from "../../Helpers/BuildCard.js";
 
@@ -53,7 +53,7 @@ export default function(props) {
       <div>Vegie section</div>
       <Button onClick={() => props.goHome()}>Return</Button>
 
-      <CardDeck>{CardBuilder(itemList, addToCart, itemCart)}</CardDeck>
+      <CardGroup>{CardBuilder(itemList, addToCart, itemCart)}</CardGroup>
     </section>
   );
 }

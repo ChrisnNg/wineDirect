@@ -43,7 +43,12 @@ function BuildCard(props) {
       <Card.Footer className="text-muted">
         {props.currentQuantity.toFixed(2)} <br />
         <Form onSubmit={handleSubmit}>
-          <Form.Control type="number" value={value} onChange={handleChange} />
+          <Form.Control
+            type="number"
+            value={value}
+            onChange={handleChange}
+            step={"any"}
+          />
           <Button variant="primary" type="submit" className="form-add">
             <i className="fas fa-plus" />
           </Button>

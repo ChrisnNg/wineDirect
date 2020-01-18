@@ -68,7 +68,7 @@ class App extends Component {
             },
             total: {
               ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += 1),
+              quantity: (this.state.cart.total.quantity += quantity),
               price: (this.state.cart.total.price += quantity * pricePerUnit)
             }
           }
@@ -95,8 +95,8 @@ class App extends Component {
             },
             total: {
               ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += 1),
-              price: (this.state.cart.total.price += 1 * pricePerUnit)
+              quantity: (this.state.cart.total.quantity += quantity),
+              price: (this.state.cart.total.price += quantity * pricePerUnit)
             }
           }
         },
