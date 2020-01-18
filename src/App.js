@@ -8,6 +8,9 @@ import Nav from "./Components/Nav.js";
 import veggie from "./Assets/pile-of-veggies.png";
 import dairy from "./Assets/Eggs-milk-and-cheese.jpg";
 import meat from "./Assets/meat-seafood.jpg";
+import pantry from "./Assets/pantry-food.png";
+import frozen from "./Assets/frozen-food.jpg";
+import bread from "./Assets/bread.jpg";
 
 class App extends Component {
   render() {
@@ -35,6 +38,24 @@ class App extends Component {
             <Card.Img variant="top" src={meat} />
             <Card.Body>
               <Card.Title>Meat and Seafood</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card body={false}>
+            <Card.Img variant="top" src={pantry} />
+            <Card.Body>
+              <Card.Title>Pantry Food</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card body={false}>
+            <Card.Img variant="top" src={frozen} />
+            <Card.Body>
+              <Card.Title>Frozen Food</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card body={false}>
+            <Card.Img variant="top" src={bread} />
+            <Card.Body>
+              <Card.Title>Bread</Card.Title>
             </Card.Body>
           </Card>
         </CardDeck>
