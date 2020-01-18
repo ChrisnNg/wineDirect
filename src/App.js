@@ -5,10 +5,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Nav from "./Components/Nav.js";
 import Home from "./Components/Home.js";
+import Vegies from "./Components/Vegies.js";
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isEmptyState: true, vegies: false };
+    this.state = this.intialState();
+  }
+
+  intialState() {
+    return { isEmptyState: true, "Fruits and Vegetables": false };
   }
 
   changeState = component => {
@@ -24,6 +30,12 @@ class App extends Component {
     );
   };
 
+  goHome = () => {
+    this.setState(this.intialState(), () => {
+      console.log("state", this.state);
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -34,6 +46,7 @@ class App extends Component {
         </div>
 
         {this.state.isEmptyState && <Home trigger={this.changeState} />}
+        {this.state["Fruits and Vegetables"] && <Vegies goHome={this.goHome} />}
       </div>
     );
   }
