@@ -15,7 +15,10 @@ import "react-toastify/dist/ReactToastify.css";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...this.intialState(), cart: {} };
+    this.state = {
+      ...this.intialState(),
+      cart: { total: { quantity: 0, price: 0 } }
+    };
   }
 
   intialState() {
@@ -54,6 +57,10 @@ class App extends Component {
             [item]: {
               name: item,
               quantity: (this.state.cart[item].quantity += 1)
+            },
+            total: {
+              ...this.state.cart.total,
+              quantity: (this.state.cart.total.quantity += 1)
             }
           }
         },
@@ -68,7 +75,11 @@ class App extends Component {
           ...this.state,
           cart: {
             ...this.state.cart,
-            [item]: { name: item, quantity: 1, calByWeight, pricePerUnit }
+            [item]: { name: item, quantity: 1, calByWeight, pricePerUnit },
+            total: {
+              ...this.state.cart.total,
+              quantity: (this.state.cart.total.quantity += 1)
+            }
           }
         },
         () => {
@@ -154,7 +165,7 @@ class App extends Component {
         <section
           className={this.state.sidenavToggled ? "body-toggled" : "body"}
         >
-          <Nav />
+          <Nav count={1} />
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Welcome to React</h2>

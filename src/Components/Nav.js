@@ -1,6 +1,6 @@
 import React from "react";
 import "./Nav.css";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, Badge } from "react-bootstrap";
 
 export default function(props) {
   return (
@@ -18,7 +18,11 @@ export default function(props) {
         <i
           className="fas fa-shopping-cart"
           onClick={x => console.log("cart clicked")}
-        />
+        >
+          <Badge className="cart-count" variant="primary">
+            {props.count}
+          </Badge>
+        </i>
       </Nav>
     </Navbar>
   );

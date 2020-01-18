@@ -20,3 +20,9 @@
   64%  { transform: scale(1,1)      translateY(0); }
   100% { transform: scale(1,1)      translateY(0); }
 }
+
+.cart-count {
+  position: relative;
+  left: -3px;
+  bottom: 13px;
+}
