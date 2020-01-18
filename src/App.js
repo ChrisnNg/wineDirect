@@ -116,6 +116,18 @@ class App extends Component {
     this.setState({ showCart: false });
   };
 
+  resetCart = () => {
+    this.setState(
+      {
+        ...this.state,
+        cart: { total: { quantity: 0, price: 0 } }
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+
   render() {
     return (
       <div className="App">
@@ -181,17 +193,24 @@ class App extends Component {
           />
           <Modal show={this.state.showCart} onHide={this.closeCart}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Checkout</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               Woohoo, you're reading this text in a modal!
             </Modal.Body>
             <Modal.Footer>
+              <Button
+                className="align-left"
+                variant="danger"
+                onClick={this.resetCart}
+              >
+                Reset Cart
+              </Button>
               <Button variant="secondary" onClick={this.closeCart}>
                 Close
               </Button>
               <Button variant="primary" onClick={this.closeCart}>
-                Save Changes
+                Checkout
               </Button>
             </Modal.Footer>
           </Modal>
