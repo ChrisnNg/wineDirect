@@ -1,0 +1,13 @@
+div .card {
+  border: none;
+}
+
+.card:hover {
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.card-img-top {
+  max-height: 150px;
+  min-height: 150px;
+}

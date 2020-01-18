@@ -2,16 +2,9 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CardDeck, Card } from "react-bootstrap";
+
 import Nav from "./Components/Nav.js";
-
-import veggie from "./Assets/pile-of-veggies.png";
-import dairy from "./Assets/Eggs-milk-and-cheese.jpg";
-import meat from "./Assets/meat-seafood.jpg";
-import pantry from "./Assets/pantry-food.png";
-import frozen from "./Assets/frozen-food.jpg";
-import bread from "./Assets/bread.jpg";
-
+import Home from "./Components/Home.js";
 class App extends Component {
   render() {
     return (
@@ -21,44 +14,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <CardDeck>
-          <Card body={false}>
-            <Card.Img variant="top" src={veggie} />
-            <Card.Body>
-              <Card.Title>Fruits and Vegetables</Card.Title>
-            </Card.Body>
-          </Card>
-          <Card body={false}>
-            <Card.Img variant="top" src={dairy} />
-            <Card.Body>
-              <Card.Title>Dairy and Eggs</Card.Title>
-            </Card.Body>
-          </Card>
-          <Card body={false}>
-            <Card.Img variant="top" src={meat} />
-            <Card.Body>
-              <Card.Title>Meat and Seafood</Card.Title>
-            </Card.Body>
-          </Card>
-          <Card body={false}>
-            <Card.Img variant="top" src={pantry} />
-            <Card.Body>
-              <Card.Title>Pantry Food</Card.Title>
-            </Card.Body>
-          </Card>
-          <Card body={false}>
-            <Card.Img variant="top" src={frozen} />
-            <Card.Body>
-              <Card.Title>Frozen Food</Card.Title>
-            </Card.Body>
-          </Card>
-          <Card body={false}>
-            <Card.Img variant="top" src={bread} />
-            <Card.Body>
-              <Card.Title>Bread</Card.Title>
-            </Card.Body>
-          </Card>
-        </CardDeck>
+        <Home />
       </div>
     );
   }

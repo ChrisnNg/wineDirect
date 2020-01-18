@@ -26,11 +26,3 @@
 
 /* Wipe top afterwards */
 
-div .card {
-  border: none;
-}
-
-.card-img-top {
-  max-height: 150px;
-  min-height: 150px;
-}
