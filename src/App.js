@@ -58,26 +58,50 @@ class App extends Component {
     }
 
     if (this.state.cart[item]) {
-      switch (sale.code) {
-        case 1:
-          if (this.state.cart[item].quantity % 2) {
-            discount = pricePerUnit * 0.33;
-          }
-          break;
-        case 2:
-          if (this.state.cart[item].quantity % 2) {
-            discount = pricePerUnit;
-          }
-          break;
-        case 3:
-          if (this.state.cart[item].quantity % 2) {
-            discount = pricePerUnit * 0.5;
-          }
-          break;
-        case 4:
-          discount = (quantity / 2) * pricePerUnit;
-          break;
-        default:
+      if (quantity > 0) {
+        switch (sale.code) {
+          case 1:
+            if (this.state.cart[item].quantity % 2) {
+              discount = pricePerUnit * 0.33 * quantity;
+            }
+            break;
+          case 2:
+            if (this.state.cart[item].quantity % 2) {
+              discount = pricePerUnit * quantity;
+            }
+            break;
+          case 3:
+            if (this.state.cart[item].quantity % 2) {
+              discount = pricePerUnit * 0.5 * quantity;
+            }
+            break;
+          case 4:
+            discount = (quantity / 2) * pricePerUnit;
+            break;
+          default:
+        }
+      } else {
+        switch (sale.code) {
+          case 1:
+            if (this.state.cart[item].quantity % 2 !== 1) {
+              discount = pricePerUnit * 0.33 * quantity;
+            }
+            break;
+          case 2:
+            if (this.state.cart[item].quantity % 2 !== 1) {
+              discount = pricePerUnit * quantity;
+            }
+            break;
+          case 3:
+            if (this.state.cart[item].quantity % 2 !== 1) {
+              discount = pricePerUnit * 0.5 * quantity;
+            }
+            break;
+          case 4:
+            discount = (quantity / 2) * pricePerUnit;
+            break;
+          default:
+        }
       }
 
       this.setState(
