@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card } from "react-bootstrap";
 
-export default function BuildCard(props) {
+function BuildCard(props) {
   function firstToUpper(string) {
     return string.charAt(0).toUpperCase() + string.substr(1);
   }
@@ -25,4 +25,23 @@ export default function BuildCard(props) {
       </Card.Body>
     </Card>
   );
+}
+
+export default function CardBuilder(itemList, clickEvent) {
+  const html = [];
+  let count = 0;
+  for (const item of itemList) {
+    html.push(
+      <BuildCard
+        key={count}
+        item={item.item}
+        image={item.image}
+        clickEvent={clickEvent}
+        pricePerUnit={item.pricePerUnit}
+        calByWeight={item.calByWeight}
+      />
+    );
+    count++;
+  }
+  return html;
 }
