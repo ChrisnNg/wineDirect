@@ -1,36 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Card } from "react-bootstrap";
+import { Card, Form, Button } from "react-bootstrap";
 
 function firstToUpper(string) {
   return string.charAt(0).toUpperCase() + string.substr(1);
 }
 
 function BuildCard(props) {
+  const [value, setValue] = useState(props.currentQuantity);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    props.addItem(
+      firstToUpper(props.item),
+      parseFloat(value),
+      props.calByWeight,
+      props.pricePerUnit
+    );
+  }
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
   return (
-    <Card
-      body={false}
-      onClick={() => {
-        props.calByWeight
-          ? props.setWeight(
-              firstToUpper(props.item),
-              5,
-              props.calByWeight,
-              props.pricePerUnit
-            )
-          : props.addItem(
-              firstToUpper(props.item),
-              1,
-              props.calByWeight,
-              props.pricePerUnit
-            );
-      }}
-    >
-      <Card.Img variant="top" src={props.image} />
+    <Card body={false}>
+      <Card.Img
+        variant="top"
+        src={props.image}
+        onClick={() => {
+          props.addItem(
+            firstToUpper(props.item),
+            1,
+            props.calByWeight,
+            props.pricePerUnit
+          );
+        }}
+      />
       <Card.Body>
         <Card.Title>{firstToUpper(props.item)}</Card.Title>
       </Card.Body>
-      <Card.Footer className="text-muted">{props.currentQuantity}</Card.Footer>
+      <Card.Footer className="text-muted">
+        {props.currentQuantity} <br />
+        <Form onSubmit={handleSubmit}>
+          <Form.Control type="number" value={value} onChange={handleChange} />
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Card.Footer>
     </Card>
   );
 }
@@ -60,7 +78,6 @@ export default function CardBuilder(itemList, addItem, itemCart) {
         addItem={addItem}
         pricePerUnit={item.pricePerUnit}
         calByWeight={item.calByWeight}
-        setWeight={setWeight}
         currentQuantity={
           itemCart[firstToUpper(item.item)]
             ? itemCart[firstToUpper(item.item)].quantity
