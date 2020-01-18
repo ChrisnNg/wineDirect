@@ -11,8 +11,6 @@ import eggplant from "./eggplant.jpg";
 import broccoli from "./broccoli.jpg";
 
 export default function(props) {
-  console.log("veggie props=", props);
-
   return (
     <section>
       <div>Vegie section</div>

@@ -7,6 +7,8 @@ import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 
 import Nav from "./Components/Nav.js";
 import Home from "./Components/Home.js";
+import Cart from "./Components/Cart.js";
+
 import Vegies from "./Components/Vegies/Vegies.js";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -128,6 +130,12 @@ class App extends Component {
     );
   };
 
+  showCartItems = () => {
+    console.log("cart asked to be shown");
+
+    return <div>Cart items</div>;
+  };
+
   render() {
     return (
       <div className="App">
@@ -196,7 +204,7 @@ class App extends Component {
               <Modal.Title>Checkout</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              Woohoo, you're reading this text in a modal!
+              <Cart itemList={this.state.cart} />
             </Modal.Body>
             <Modal.Footer>
               <Button
