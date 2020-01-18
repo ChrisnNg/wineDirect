@@ -283,7 +283,7 @@ class App extends Component {
           discount: (prevState.cart.total.discount += coupon_amount)
         }
       },
-      couponsUsed: [...prevState, coupon_code]
+      couponsUsed: [...prevState.couponsUsed, coupon_code]
     }));
   };
 
@@ -358,6 +358,7 @@ class App extends Component {
             resetCart={this.resetCart}
             closeCart={this.closeCart}
             applyCoupon={this.applyCoupon}
+            appliedCoupons={this.state.couponsUsed}
           />
 
           <div className="App-header">

@@ -22,7 +22,7 @@ export default function(props) {
         <Modal.Title>Checkout</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Cart itemList={props.cart} />
+        <Cart itemList={props.cart} coupons={props.appliedCoupons} />
         <Form onSubmit={handleSubmit}>
           <Form.Control
             type="number"

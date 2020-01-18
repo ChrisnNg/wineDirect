@@ -1,6 +1,17 @@
 import React from "react";
 
 export default function(props) {
+  console.log("props from cart", props);
+
+  function returnCoupons(couponArray) {
+    let html = [];
+
+    couponArray.map((coupon, index) => {
+      html.push(<span key={index}>{coupon} </span>);
+    });
+    return html;
+  }
+
   function generateHTML() {
     const html = [];
     let key = 0;
@@ -30,7 +41,10 @@ export default function(props) {
       Total # Items:{props.itemList.total.quantity}
       <br />
       Subtotal: {props.itemList.total.price}
+      <br />
       Total: {props.itemList.total.price - props.itemList.total.discount}
+      <br />
+      Coupons Applied: {returnCoupons(props.coupons)}
     </div>
   );
 }
