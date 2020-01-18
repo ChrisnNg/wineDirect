@@ -15,6 +15,9 @@ import Nav from "./Components/Nav.js";
 import Home from "./Components/Home.js";
 import Vegies from "./Components/Vegies/Vegies.js";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +26,6 @@ class App extends Component {
 
   intialState() {
     return {
-      sidenavToggled: false,
       isEmptyState: true,
       "Fruits and Vegetables": false
     };
@@ -48,20 +50,38 @@ class App extends Component {
     });
   };
 
+  handleSelection = selected => {
+    console.log(selected);
+
+    switch (selected) {
+      case "Home":
+        this.goHome();
+        break;
+      case "Reports/Sales":
+        toast("Please login as a manager to view");
+        break;
+      case "Reports/Expenses":
+        toast("Please login as a manager to view");
+        break;
+      default:
+    }
+  };
+
   render() {
     return (
       <div className="App">
         <SideNav
           onSelect={selected => {
             // Add your code here
+            this.handleSelection(selected);
           }}
           onToggle={toggle => {
             this.setState({ sidenavToggled: !this.state.sidenavToggled });
           }}
         >
           <SideNav.Toggle />
-          <SideNav.Nav defaultSelected="home">
-            <NavItem eventKey="home">
+          <SideNav.Nav defaultSelected="Home">
+            <NavItem eventKey="Home">
               <NavIcon>
                 <i
                   className="fa fa-fw fa-home"
@@ -77,16 +97,19 @@ class App extends Component {
                   style={{ fontSize: "1.75em" }}
                 />
               </NavIcon>
-              <NavText>Charts</NavText>
-              <NavItem eventKey="charts/linechart">
-                <NavText>Line Chart</NavText>
+              <NavText>Manager Reports</NavText>
+              <NavItem eventKey="Reports/Sales">
+                <NavText>Today's Sales</NavText>
               </NavItem>
-              <NavItem eventKey="charts/barchart">
-                <NavText>Bar Chart</NavText>
+              <NavItem eventKey="Reports/Expenses">
+                <NavText>Today's Expenses</NavText>
               </NavItem>
             </NavItem>
           </SideNav.Nav>
         </SideNav>
+
+        <ToastContainer />
+
         <section
           className={this.state.sidenavToggled ? "body-toggled" : "body"}
         >

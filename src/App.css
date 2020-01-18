@@ -32,4 +32,5 @@
 
 .body-toggled {
   margin-left: 240px;
+  transition: 0.2s;
 }
