@@ -1,0 +1,9 @@
+.indent {
+  position: relative;
+  left: 15px;
+}
+
+.cart {
+  margin-bottom: 25px;
+  border-bottom: 3px solid gray;
+}

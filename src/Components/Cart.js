@@ -1,4 +1,5 @@
 import React from "react";
+import "./Cart.css";
 
 export default function(props) {
   console.log("props from cart", props);
@@ -26,8 +27,9 @@ export default function(props) {
             {props.itemList[item].quantity * props.itemList[item].pricePerUnit}
             {props.itemList[item].discount ? (
               <React.Fragment>
-                <br />{" "}
-                <span className="text-muted">
+                <br />
+                {"    "}
+                <span className="text-muted indent">
                   {"Saved $" + props.itemList[item].discount}
                 </span>
               </React.Fragment>
@@ -43,15 +45,17 @@ export default function(props) {
 
   return (
     <div>
-      {generateHTML()}
-      <br />
-      Total # Items:{props.itemList.total.quantity}
-      <br />
-      Subtotal: {props.itemList.total.price}
-      <br />
-      Coupons Applied: {returnCoupons(props.coupons)}
-      <br />
-      Grand Total: {props.itemList.total.price - props.itemList.total.discount}
+      <section className="cart">{generateHTML()}</section>
+
+      <p>
+        Total # Items:{props.itemList.total.quantity} <br />
+        Subtotal: {props.itemList.total.price}
+        <br />
+        Coupons Applied: {returnCoupons(props.coupons)}
+        <br />
+        Grand Total:{" "}
+        {props.itemList.total.price - props.itemList.total.discount}
+      </p>
     </div>
   );
 }

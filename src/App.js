@@ -54,9 +54,6 @@ class App extends Component {
 
   addToCart = (item, quantity, calByWeight, pricePerUnit, sale) => {
     let discount = 0;
-    if (sale.validTill - Date.now() >= 0) {
-      console.log("added item to cart that is discountable code= ", sale.code);
-    }
 
     if (this.state.cart[item]) {
       if (quantity > 0) {
@@ -117,7 +114,10 @@ class App extends Component {
               totalPrice:
                 prevState.cart[item].quantity *
                 prevState.cart[item].pricePerUnit,
-              discount: (prevState.cart[item].discount += discount)
+              discount:
+                sale.validTill - Date.now() >= 0
+                  ? (prevState.cart[item].discount += discount)
+                  : null
             },
             total: {
               ...prevState.cart.total,
@@ -169,7 +169,7 @@ class App extends Component {
               pricePerUnit,
               totalPrice: quantity * pricePerUnit,
               sale,
-              discount
+              discount: sale.validTill - Date.now() >= 0 ? discount : null
             },
             total: {
               ...prevState.cart.total,
