@@ -17,7 +17,7 @@ export default function(props) {
       <Nav className="ml-auto">
         <i className="fas fa-shopping-cart" onClick={props.openCart}>
           <Badge className="cart-count" variant="primary">
-            {props.count}
+            {props.count.toFixed(0)}
           </Badge>
         </i>
       </Nav>

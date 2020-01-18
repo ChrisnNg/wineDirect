@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Button, Badge } from "react-bootstrap";
 
 function firstToUpper(string) {
   return string.charAt(0).toUpperCase() + string.substr(1);
 }
 
 function BuildCard(props) {
+  console.log("build card props=", props);
   const [value, setValue] = useState(props.currentQuantity);
 
   function handleSubmit(event) {
@@ -38,7 +39,14 @@ function BuildCard(props) {
         }}
       />
       <Card.Body>
-        <Card.Title>{firstToUpper(props.item)}</Card.Title>
+        <Card.Title>
+          {firstToUpper(props.item)}
+          {props.sale && (
+            <Badge className="badge-sale" variant="secondary">
+              Sale!
+            </Badge>
+          )}
+        </Card.Title>
       </Card.Body>
       <Card.Footer className="text-muted">
         {props.currentQuantity.toFixed(2)} <br />
@@ -82,6 +90,7 @@ export default function CardBuilder(itemList, addItem, itemCart) {
             ? itemCart[firstToUpper(item.item)].quantity
             : 0
         }
+        sale={item.sale}
       />
     );
     count++;

@@ -29,7 +29,8 @@ export default function(props) {
     {
       item: "carrot",
       image: carrot,
-      pricePerUnit: 2.15
+      pricePerUnit: 2.15,
+      sale: true
     },
     {
       item: "lettuce",

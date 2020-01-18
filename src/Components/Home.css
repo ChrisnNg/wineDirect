@@ -19,3 +19,8 @@ div .card {
   display: flex;
   flex-flow: row wrap;
 }
+
+.badge-sale {
+  background: red;
+  position: relative;
+}
