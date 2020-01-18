@@ -10,13 +10,14 @@ import frozen from "../Assets/frozen-food.jpg";
 import bread from "../Assets/bread.jpg";
 
 export default function(props) {
-  function handleClick(props) {
-    console.log("click handled", props);
+  function handleClick(item) {
+    console.log("click handled", item, props);
+    props.trigger("veggie");
   }
 
   return (
     <CardDeck>
-      <Card body={false} onClick={() => handleClick("props")}>
+      <Card body={false} onClick={() => handleClick("Veggies")}>
         <Card.Img variant="top" src={veggie} />
         <Card.Body>
           <Card.Title>Fruits and Vegetables</Card.Title>
