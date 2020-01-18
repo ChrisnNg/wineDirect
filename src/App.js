@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+import { CardDeck, Card } from "react-bootstrap";
 import Nav from "./Components/Nav.js";
+
+import veggie from "./Assets/pile-of-veggies.png";
+import dairy from "./Assets/Eggs-milk-and-cheese.jpg";
+import meat from "./Assets/meat-seafood.jpg";
 
 class App extends Component {
   render() {
@@ -14,9 +18,26 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <CardDeck>
+          <Card body={false}>
+            <Card.Img variant="top" src={veggie} />
+            <Card.Body>
+              <Card.Title>Fruits and Vegetables</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card body={false}>
+            <Card.Img variant="top" src={dairy} />
+            <Card.Body>
+              <Card.Title>Dairy and Eggs</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card body={false}>
+            <Card.Img variant="top" src={meat} />
+            <Card.Body>
+              <Card.Title>Meat and Seafood</Card.Title>
+            </Card.Body>
+          </Card>
+        </CardDeck>
       </div>
     );
   }
