@@ -1,6 +1,8 @@
 import React from "react";
 import { CardDeck, Card, Button } from "react-bootstrap";
 
+import BuildCard from "../../Helpers/BuildCard.js";
+
 import spinach from "./spinach.jpg";
 import avocado from "./avocado.jpg";
 import carrot from "./carrot.jpg";
@@ -34,7 +36,12 @@ export default function(props) {
           </Card.Body>
         </Card>
 
-        <Card body={false}>
+        <Card
+          body={false}
+          onClick={() => {
+            handleClick("Avocado");
+          }}
+        >
           <Card.Img variant="top" src={avocado} />
           <Card.Body>
             <Card.Title>Avocado</Card.Title>
@@ -68,6 +75,12 @@ export default function(props) {
             <Card.Title>Broccoli</Card.Title>
           </Card.Body>
         </Card>
+
+        <BuildCard
+          item="eggplant"
+          image={eggplant}
+          clickEvent={props.addToCart}
+        />
       </CardDeck>
     </section>
   );
