@@ -44,7 +44,7 @@ class App extends Component {
     });
   };
 
-  addToCart = (item, quantity) => {
+  addToCart = (item, quantity, calByWeight, pricePerUnit) => {
     if (this.state.cart[item]) {
       this.setState(
         {
@@ -66,7 +66,10 @@ class App extends Component {
       this.setState(
         {
           ...this.state,
-          cart: { ...this.state.cart, [item]: { name: item, quantity: 1 } }
+          cart: {
+            ...this.state.cart,
+            [item]: { name: item, quantity: 1, calByWeight, pricePerUnit }
+          }
         },
         () => {
           console.log("current cart updated to=", this.state.cart);

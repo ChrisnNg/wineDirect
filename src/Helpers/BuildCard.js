@@ -11,7 +11,12 @@ export default function BuildCard(props) {
     <Card
       body={false}
       onClick={() => {
-        props.clickEvent(firstToUpper(props.item), 1);
+        props.clickEvent(
+          firstToUpper(props.item),
+          1,
+          props.calByWeight,
+          props.pricePerUnit
+        );
       }}
     >
       <Card.Img variant="top" src={props.image} />
