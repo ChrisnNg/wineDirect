@@ -115,7 +115,8 @@ class App extends Component {
               quantity: (this.state.cart[item].quantity += quantity),
               totalPrice:
                 this.state.cart[item].quantity *
-                this.state.cart[item].pricePerUnit
+                this.state.cart[item].pricePerUnit,
+              discount: (this.state.cart[item].discount += discount)
             },
             total: {
               ...this.state.cart.total,
@@ -133,6 +134,21 @@ class App extends Component {
       console.log("new item added to cart");
 
       switch (sale.code) {
+        case 1:
+          if (quantity % 2 === 0) {
+            discount = (pricePerUnit * 0.33 * quantity) / 2;
+          }
+          break;
+        case 2:
+          if (quantity % 2 === 0) {
+            discount = (pricePerUnit * quantity) / 2;
+          }
+          break;
+        case 3:
+          if (quantity % 2 === 0) {
+            discount = (pricePerUnit * 0.5 * quantity) / 2;
+          }
+          break;
         case 4:
           discount = (quantity / 2) * pricePerUnit;
           break;
@@ -151,7 +167,8 @@ class App extends Component {
               calByWeight,
               pricePerUnit,
               totalPrice: quantity * pricePerUnit,
-              sale
+              sale,
+              discount
             },
             total: {
               ...this.state.cart.total,
