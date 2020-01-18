@@ -9,6 +9,7 @@ export default function(props) {
   function handleSubmit(event) {
     event.preventDefault();
     props.applyCoupon(value);
+    setValue("");
   }
 
   function handleChange(event) {
@@ -22,6 +23,17 @@ export default function(props) {
       </Modal.Header>
       <Modal.Body>
         <Cart itemList={props.cart} />
+        <Form onSubmit={handleSubmit}>
+          <Form.Control
+            type="number"
+            value={value}
+            onChange={handleChange}
+            step={"any"}
+          />
+          <Button variant="secondary" type="submit">
+            Apply Coupons
+          </Button>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button
@@ -34,18 +46,6 @@ export default function(props) {
         <Button variant="secondary" onClick={props.closeCart}>
           Close
         </Button>
-
-        <Form onSubmit={handleSubmit}>
-          <Form.Control
-            type="number"
-            value={value}
-            onChange={handleChange}
-            step={"any"}
-          />
-          <Button variant="secondary" type="submit">
-            Apply Coupons
-          </Button>
-        </Form>
 
         <Button variant="primary" onClick={props.closeCart}>
           Checkout

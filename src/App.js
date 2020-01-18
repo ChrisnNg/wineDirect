@@ -225,7 +225,16 @@ class App extends Component {
 
   applyCoupon = couponCode => {
     console.log(couponCode);
-    let coupon_amount = 5;
+    let coupon_amount = 0;
+
+    switch (couponCode) {
+      case "123":
+        coupon_amount = 20;
+        toast.success("Coupon applied!");
+        break;
+      default:
+        toast.warning("Coupon invalid");
+    }
 
     this.setState(prevState => ({
       ...prevState,
