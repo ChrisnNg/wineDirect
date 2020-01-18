@@ -7,13 +7,11 @@ import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 
 import Nav from "./Components/Nav.js";
 import Home from "./Components/Home.js";
-import Cart from "./Components/Cart.js";
 
 import Vegies from "./Components/Vegies/Vegies.js";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Modal, Button } from "react-bootstrap";
 
 import Checkout from "./Components/Checkout.js";
 
@@ -70,7 +68,8 @@ class App extends Component {
             },
             total: {
               ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += quantity)
+              quantity: (this.state.cart.total.quantity += quantity),
+              price: (this.state.cart.total.price += quantity * pricePerUnit)
             }
           }
         },
@@ -95,7 +94,8 @@ class App extends Component {
             },
             total: {
               ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += 1)
+              quantity: (this.state.cart.total.quantity += 1),
+              price: (this.state.cart.total.price += 1 * pricePerUnit)
             }
           }
         },
