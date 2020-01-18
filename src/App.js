@@ -55,27 +55,31 @@ class App extends Component {
     let discount = 0;
     if (sale.validTill - Date.now() >= 0) {
       console.log("added item to cart that is discountable code= ", sale.code);
-
-      switch (sale.code) {
-        case 1:
-          console.log(1);
-          break;
-        case 2:
-          discount = -10;
-          break;
-        case 3:
-          // desc: "Buy one Get one 50% off!"
-          console.log(3);
-
-          break;
-        case 4:
-          console.log(4);
-          break;
-        default:
-      }
     }
 
     if (this.state.cart[item]) {
+      switch (sale.code) {
+        case 1:
+          if (this.state.cart[item].quantity % 2) {
+            discount = pricePerUnit * 0.33;
+          }
+          break;
+        case 2:
+          if (this.state.cart[item].quantity % 2) {
+            discount = pricePerUnit;
+          }
+          break;
+        case 3:
+          if (this.state.cart[item].quantity % 2) {
+            discount = pricePerUnit * 0.5;
+          }
+          break;
+        case 4:
+          discount = (quantity / 2) * pricePerUnit;
+          break;
+        default:
+      }
+
       this.setState(
         {
           ...this.state,
@@ -103,6 +107,13 @@ class App extends Component {
       );
     } else {
       console.log("new item added to cart");
+
+      switch (sale.code) {
+        case 4:
+          discount = (quantity / 2) * pricePerUnit;
+          break;
+        default:
+      }
 
       this.setState(
         {

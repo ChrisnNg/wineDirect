@@ -16,7 +16,8 @@ function BuildCard(props) {
       firstToUpper(props.item),
       parseFloat(value),
       props.calByWeight,
-      props.pricePerUnit
+      props.pricePerUnit,
+      props.sale
     );
   }
 

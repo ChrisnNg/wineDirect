@@ -22,7 +22,7 @@ export default function(props) {
       sale: {
         code: 1,
         validTill: new Date(Date.UTC(2019, 11, 20, 3, 0, 0)),
-        desc: "Buy one Get one 50% off!"
+        desc: "Buy one Get one 33% off!"
       }
     },
     {
@@ -33,7 +33,7 @@ export default function(props) {
       sale: {
         code: 1,
         validTill: new Date(Date.UTC(2019, 11, 20, 3, 0, 0)),
-        desc: "Buy one Get one 50% off!"
+        desc: "Buy one Get one 33% off!"
       }
     },
     {
@@ -73,7 +73,7 @@ export default function(props) {
       sale: {
         code: 4,
         validTill: new Date(Date.UTC(2021, 11, 20, 3, 0, 0)),
-        desc: "Buy two Get one 30% off!"
+        desc: "50% off all!"
       }
     }
   ];
