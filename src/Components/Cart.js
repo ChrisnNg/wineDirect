@@ -7,7 +7,9 @@ export default function(props) {
     let html = [];
 
     couponArray.map((coupon, index) => {
-      html.push(<span key={index}>{coupon} </span>);
+      if (coupon) {
+        html.push(<span key={index}>#{coupon} </span>);
+      }
     });
     return html;
   }
@@ -22,9 +24,14 @@ export default function(props) {
             {item} x {props.itemList[item].quantity} at $
             {props.itemList[item].pricePerUnit}ea = $
             {props.itemList[item].quantity * props.itemList[item].pricePerUnit}
-            {props.itemList[item].discount
-              ? "Discount offered " + props.itemList[item].discount
-              : null}
+            {props.itemList[item].discount ? (
+              <React.Fragment>
+                <br />{" "}
+                <span className="text-muted">
+                  {"Saved $" + props.itemList[item].discount}
+                </span>
+              </React.Fragment>
+            ) : null}
           </article>
         );
         key += 1;
@@ -42,9 +49,9 @@ export default function(props) {
       <br />
       Subtotal: {props.itemList.total.price}
       <br />
-      Total: {props.itemList.total.price - props.itemList.total.discount}
-      <br />
       Coupons Applied: {returnCoupons(props.coupons)}
+      <br />
+      Grand Total: {props.itemList.total.price - props.itemList.total.discount}
     </div>
   );
 }
