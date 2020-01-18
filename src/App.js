@@ -15,6 +15,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Modal, Button } from "react-bootstrap";
 
+import Checkout from "./Components/Checkout.js";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -141,12 +143,6 @@ class App extends Component {
     );
   };
 
-  showCartItems = () => {
-    console.log("cart asked to be shown");
-
-    return <div>Cart items</div>;
-  };
-
   render() {
     return (
       <div className="App">
@@ -210,29 +206,15 @@ class App extends Component {
             count={this.state.cart.total.quantity}
             openCart={this.openCart}
           />
-          <Modal show={this.state.showCart} onHide={this.closeCart}>
-            <Modal.Header closeButton>
-              <Modal.Title>Checkout</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Cart itemList={this.state.cart} />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button
-                className="align-left"
-                variant="danger"
-                onClick={this.resetCart}
-              >
-                Reset Cart
-              </Button>
-              <Button variant="secondary" onClick={this.closeCart}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={this.closeCart}>
-                Checkout
-              </Button>
-            </Modal.Footer>
-          </Modal>
+
+          <Checkout
+            show={this.state.showCart}
+            onHide={this.closeCart}
+            cart={this.state.cart}
+            resetCart={this.resetCart}
+            closeCart={this.closeCart}
+          />
+
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Welcome to React</h2>
