@@ -26,3 +26,10 @@
 
 /* Wipe top afterwards */
 
+.body {
+  margin-left: 64px;
+}
+
+.body-toggled {
+  margin-left: 240px;
+}

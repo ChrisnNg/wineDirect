@@ -18,3 +18,5 @@ Create a Grocery-store - Point of sales system.
 Connection to a backend so that # of items sold and quantity is persistent.
 
 Because the goal of this exercise is to evaluate my coding style and OO design skills, i will assume that an administrative panel will be out of scope.
+
+Mobile view is out of scope as unnecessary for a POS. Expect general view width to be roughly the size of a tablet.
