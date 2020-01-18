@@ -24,6 +24,14 @@ function BuildCard(props) {
   function handleChange(event) {
     setValue(event.target.value);
   }
+
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  };
+
   return (
     <Card body={false}>
       <Card.Img
@@ -41,10 +49,16 @@ function BuildCard(props) {
       <Card.Body>
         <Card.Title>
           {firstToUpper(props.item)}
-          {props.sale && (
-            <Badge className="badge-sale" variant="secondary">
-              Sale!
-            </Badge>
+          {props.sale && props.sale.validTill - Date.now() >= 0 && (
+            <React.Fragment>
+              <Badge className="badge-sale" variant="secondary">
+                Sale!
+              </Badge>
+              <br />
+              {props.sale.desc}
+              Expires:{" "}
+              {props.sale.validTill.toLocaleDateString(undefined, options)}
+            </React.Fragment>
           )}
         </Card.Title>
       </Card.Body>

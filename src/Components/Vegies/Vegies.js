@@ -24,28 +24,47 @@ export default function(props) {
       item: "avocado",
       image: avocado,
       pricePerUnit: 4.5,
-      calByWeight: true
+      calByWeight: true,
+      sale: {
+        validTill: new Date(Date.UTC(2019, 11, 20, 3, 0, 0)),
+        desc: "Buy one Get one 50% off!"
+      }
     },
     {
       item: "carrot",
       image: carrot,
       pricePerUnit: 2.15,
-      sale: true
+      sale: {
+        validTill: new Date(Date.UTC(2019, 12, 20, 3, 0, 0)),
+        desc: "Buy one Get one Free!"
+      }
     },
     {
       item: "lettuce",
       image: lettuce,
-      pricePerUnit: 2.0
+      pricePerUnit: 2.0,
+      sale: {
+        validTill: new Date(Date.UTC(2012, 10, 20, 3, 0, 0)),
+        desc: "Buy one Get one 50% off!"
+      }
     },
     {
       item: "eggplant",
       image: eggplant,
-      pricePerUnit: 4.0
+      pricePerUnit: 4.0,
+      sale: {
+        validTill: new Date(Date.UTC(2020, 11, 20, 3, 0, 0)),
+        desc: "Buy one Get one 50% off!"
+      }
     },
     {
       item: "broccoli",
       image: broccoli,
-      pricePerUnit: 3.0
+      pricePerUnit: 3.0,
+      sale: {
+        validTill: new Date(Date.UTC(2021, 11, 20, 3, 0, 0)),
+        desc: "Buy one Get one 30% off!"
+      }
     }
   ];
 
