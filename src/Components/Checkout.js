@@ -1,9 +1,20 @@
-import React from "react";
-import { Modal, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Modal, Button, Form } from "react-bootstrap";
 
 import Cart from "./Cart.js";
 
 export default function(props) {
+  const [value, setValue] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    props.applyCoupon(value);
+  }
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
   return (
     <Modal show={props.show} onHide={props.onHide}>
       <Modal.Header closeButton>
@@ -23,9 +34,19 @@ export default function(props) {
         <Button variant="secondary" onClick={props.closeCart}>
           Close
         </Button>
-        <Button variant="secondary" onClick={props.applyCoupon}>
-          Apply Coupons
-        </Button>
+
+        <Form onSubmit={handleSubmit}>
+          <Form.Control
+            type="number"
+            value={value}
+            onChange={handleChange}
+            step={"any"}
+          />
+          <Button variant="secondary" type="submit">
+            Apply Coupons
+          </Button>
+        </Form>
+
         <Button variant="primary" onClick={props.closeCart}>
           Checkout
         </Button>

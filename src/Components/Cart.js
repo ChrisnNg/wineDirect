@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function(props) {
-  console.log(props);
-
   function generateHTML() {
     const html = [];
     let key = 0;

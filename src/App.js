@@ -223,24 +223,20 @@ class App extends Component {
     );
   };
 
-  applyCoupon = () => {
+  applyCoupon = couponCode => {
+    console.log(couponCode);
     let coupon_amount = 5;
 
-    this.setState(
-      prevState => ({
-        ...prevState,
-        cart: {
-          ...prevState.cart,
-          total: {
-            ...prevState.cart.total,
-            discount: (prevState.cart.total.discount += coupon_amount)
-          }
+    this.setState(prevState => ({
+      ...prevState,
+      cart: {
+        ...prevState.cart,
+        total: {
+          ...prevState.cart.total,
+          discount: (prevState.cart.total.discount += coupon_amount)
         }
-      }),
-      () => {
-        console.log("current cart updated to=", this.state.cart);
       }
-    );
+    }));
   };
 
   render() {
