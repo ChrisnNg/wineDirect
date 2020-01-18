@@ -41,11 +41,11 @@ function BuildCard(props) {
         <Card.Title>{firstToUpper(props.item)}</Card.Title>
       </Card.Body>
       <Card.Footer className="text-muted">
-        {props.currentQuantity} <br />
+        {props.currentQuantity.toFixed(2)} <br />
         <Form onSubmit={handleSubmit}>
           <Form.Control type="number" value={value} onChange={handleChange} />
-          <Button variant="primary" type="submit">
-            Submit
+          <Button variant="primary" type="submit" className="form-add">
+            <i className="fas fa-plus" />
           </Button>
         </Form>
       </Card.Footer>
@@ -56,12 +56,6 @@ function BuildCard(props) {
 export default function CardBuilder(itemList, addItem, itemCart) {
   const html = [];
   let count = 0;
-
-  function setWeight(item, weight, calByWeight, pricePerUnit) {
-    console.log("add weight function called for ", item, "at weight=", weight);
-
-    addItem(item, weight, calByWeight, pricePerUnit);
-  }
 
   for (const item of itemList) {
     if (itemCart[item]) {
