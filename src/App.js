@@ -51,7 +51,30 @@ class App extends Component {
     });
   };
 
-  addToCart = (item, quantity, calByWeight, pricePerUnit) => {
+  addToCart = (item, quantity, calByWeight, pricePerUnit, sale) => {
+    let discount = 0;
+    if (sale.validTill - Date.now() >= 0) {
+      console.log("added item to cart that is discountable code= ", sale.code);
+
+      switch (sale.code) {
+        case 1:
+          console.log(1);
+          break;
+        case 2:
+          discount = -10;
+          break;
+        case 3:
+          // desc: "Buy one Get one 50% off!"
+          console.log(3);
+
+          break;
+        case 4:
+          console.log(4);
+          break;
+        default:
+      }
+    }
+
     if (this.state.cart[item]) {
       this.setState(
         {
@@ -69,7 +92,8 @@ class App extends Component {
             total: {
               ...this.state.cart.total,
               quantity: (this.state.cart.total.quantity += quantity),
-              price: (this.state.cart.total.price += quantity * pricePerUnit)
+              price: (this.state.cart.total.price += quantity * pricePerUnit),
+              discount: (this.state.cart.total.discount += discount)
             }
           }
         },
@@ -91,12 +115,14 @@ class App extends Component {
               quantity: quantity,
               calByWeight,
               pricePerUnit,
-              totalPrice: quantity * pricePerUnit
+              totalPrice: quantity * pricePerUnit,
+              sale
             },
             total: {
               ...this.state.cart.total,
               quantity: (this.state.cart.total.quantity += quantity),
-              price: (this.state.cart.total.price += quantity * pricePerUnit)
+              price: (this.state.cart.total.price += quantity * pricePerUnit),
+              discount
             }
           }
         },

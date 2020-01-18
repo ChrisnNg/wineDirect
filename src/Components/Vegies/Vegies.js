@@ -18,7 +18,12 @@ export default function(props) {
     {
       item: "spinach",
       image: spinach,
-      pricePerUnit: 5.0
+      pricePerUnit: 5.0,
+      sale: {
+        code: 1,
+        validTill: new Date(Date.UTC(2019, 11, 20, 3, 0, 0)),
+        desc: "Buy one Get one 50% off!"
+      }
     },
     {
       item: "avocado",
@@ -26,6 +31,7 @@ export default function(props) {
       pricePerUnit: 4.5,
       calByWeight: true,
       sale: {
+        code: 1,
         validTill: new Date(Date.UTC(2019, 11, 20, 3, 0, 0)),
         desc: "Buy one Get one 50% off!"
       }
@@ -35,6 +41,7 @@ export default function(props) {
       image: carrot,
       pricePerUnit: 2.15,
       sale: {
+        code: 2,
         validTill: new Date(Date.UTC(2019, 12, 20, 3, 0, 0)),
         desc: "Buy one Get one Free!"
       }
@@ -44,6 +51,7 @@ export default function(props) {
       image: lettuce,
       pricePerUnit: 2.0,
       sale: {
+        code: 3,
         validTill: new Date(Date.UTC(2012, 10, 20, 3, 0, 0)),
         desc: "Buy one Get one 50% off!"
       }
@@ -53,6 +61,7 @@ export default function(props) {
       image: eggplant,
       pricePerUnit: 4.0,
       sale: {
+        code: 3,
         validTill: new Date(Date.UTC(2020, 11, 20, 3, 0, 0)),
         desc: "Buy one Get one 50% off!"
       }
@@ -62,8 +71,9 @@ export default function(props) {
       image: broccoli,
       pricePerUnit: 3.0,
       sale: {
+        code: 4,
         validTill: new Date(Date.UTC(2021, 11, 20, 3, 0, 0)),
-        desc: "Buy one Get one 30% off!"
+        desc: "Buy two Get one 30% off!"
       }
     }
   ];

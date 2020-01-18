@@ -7,7 +7,6 @@ function firstToUpper(string) {
 }
 
 function BuildCard(props) {
-  console.log("build card props=", props);
   const [value, setValue] = useState(props.currentQuantity);
 
   function handleSubmit(event) {
@@ -42,7 +41,8 @@ function BuildCard(props) {
             firstToUpper(props.item),
             1,
             props.calByWeight,
-            props.pricePerUnit
+            props.pricePerUnit,
+            props.sale
           );
         }}
       />
@@ -88,8 +88,6 @@ export default function CardBuilder(itemList, addItem, itemCart) {
     if (itemCart[item]) {
       console.log(itemCart[item]);
     }
-
-    console.log(firstToUpper(item.item));
 
     html.push(
       <BuildCard
