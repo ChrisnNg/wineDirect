@@ -11,13 +11,15 @@ import Vegies from "./Components/Vegies/Vegies.js";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Modal, Button } from "react-bootstrap";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ...this.intialState(),
-      cart: { total: { quantity: 0, price: 0 } }
+      cart: { total: { quantity: 0, price: 0 } },
+      showCart: false
     };
   }
 
@@ -106,6 +108,14 @@ class App extends Component {
     }
   };
 
+  openCart = () => {
+    this.setState({ showCart: true });
+  };
+
+  closeCart = () => {
+    this.setState({ showCart: false });
+  };
+
   render() {
     return (
       <div className="App">
@@ -165,11 +175,31 @@ class App extends Component {
         <section
           className={this.state.sidenavToggled ? "body-toggled" : "body"}
         >
-          <Nav count={1} />
+          <Nav
+            count={this.state.cart.total.quantity}
+            openCart={this.openCart}
+          />
+          <Modal show={this.state.showCart} onHide={this.closeCart}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Woohoo, you're reading this text in a modal!
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={this.closeCart}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={this.closeCart}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Welcome to React</h2>
           </div>
+
           {this.state.isEmptyState && <Home trigger={this.changeState} />}
           {this.state["Fruits and Vegetables"] && (
             <Vegies goHome={this.goHome} addToCart={this.addToCart} />

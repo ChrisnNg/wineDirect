@@ -15,10 +15,7 @@ export default function(props) {
         />
       </Navbar.Brand>
       <Nav className="ml-auto">
-        <i
-          className="fas fa-shopping-cart"
-          onClick={x => console.log("cart clicked")}
-        >
+        <i className="fas fa-shopping-cart" onClick={props.openCart}>
           <Badge className="cart-count" variant="primary">
             {props.count}
           </Badge>
