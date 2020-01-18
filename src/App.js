@@ -59,12 +59,16 @@ class App extends Component {
           cart: {
             ...this.state.cart,
             [item]: {
+              ...this.state.cart[item],
               name: item,
-              quantity: (this.state.cart[item].quantity += 1)
+              quantity: (this.state.cart[item].quantity += quantity),
+              totalPrice:
+                this.state.cart[item].quantity *
+                this.state.cart[item].pricePerUnit
             },
             total: {
               ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += 1)
+              quantity: (this.state.cart.total.quantity += quantity)
             }
           }
         },
@@ -73,13 +77,20 @@ class App extends Component {
         }
       );
     } else {
-      console.log("false triggered");
+      console.log("new item added to cart");
       this.setState(
         {
           ...this.state,
           cart: {
             ...this.state.cart,
-            [item]: { name: item, quantity: 1, calByWeight, pricePerUnit },
+            [item]: {
+              ...this.state.cart[item],
+              name: item,
+              quantity: 1,
+              calByWeight,
+              pricePerUnit,
+              totalPrice: quantity * pricePerUnit
+            },
             total: {
               ...this.state.cart.total,
               quantity: (this.state.cart.total.quantity += 1)

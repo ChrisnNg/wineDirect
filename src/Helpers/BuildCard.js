@@ -31,7 +31,7 @@ export default function CardBuilder(itemList, addItem) {
   const html = [];
   let count = 0;
 
-  function addWeight(item) {
+  function setWeight(item) {
     console.log("add weight function called for ", item);
   }
 
@@ -45,7 +45,7 @@ export default function CardBuilder(itemList, addItem) {
         key={count}
         item={item.item}
         image={item.image}
-        clickEvent={item.calByWeight ? addWeight : addItem}
+        clickEvent={item.calByWeight ? setWeight : addItem}
         pricePerUnit={item.pricePerUnit}
         calByWeight={item.calByWeight}
       />
