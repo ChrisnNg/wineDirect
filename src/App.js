@@ -20,8 +20,9 @@ class App extends Component {
     super(props);
     this.state = {
       ...this.intialState(),
-      cart: { total: { quantity: 0, price: 0 } },
-      showCart: false
+      cart: { total: { quantity: 0, price: 0, discount: 0 } },
+      showCart: false,
+      couponsUsed: null
     };
   }
 
@@ -105,27 +106,27 @@ class App extends Component {
       }
 
       this.setState(
-        {
-          ...this.state,
+        prevState => ({
+          ...prevState,
           cart: {
-            ...this.state.cart,
+            ...prevState.cart,
             [item]: {
-              ...this.state.cart[item],
+              ...prevState.cart[item],
               name: item,
-              quantity: (this.state.cart[item].quantity += quantity),
+              quantity: (prevState.cart[item].quantity += quantity),
               totalPrice:
-                this.state.cart[item].quantity *
-                this.state.cart[item].pricePerUnit,
-              discount: (this.state.cart[item].discount += discount)
+                prevState.cart[item].quantity *
+                prevState.cart[item].pricePerUnit,
+              discount: (prevState.cart[item].discount += discount)
             },
             total: {
-              ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += quantity),
-              price: (this.state.cart.total.price += quantity * pricePerUnit),
-              discount: (this.state.cart.total.discount += discount)
+              ...prevState.cart.total,
+              quantity: (prevState.cart.total.quantity += quantity),
+              price: (prevState.cart.total.price += quantity * pricePerUnit),
+              discount: (prevState.cart.total.discount += discount)
             }
           }
-        },
+        }),
         () => {
           console.log("current cart updated to=", this.state.cart);
         }
@@ -156,12 +157,12 @@ class App extends Component {
       }
 
       this.setState(
-        {
-          ...this.state,
+        prevState => ({
+          ...prevState,
           cart: {
-            ...this.state.cart,
+            ...prevState.cart,
             [item]: {
-              ...this.state.cart[item],
+              ...prevState.cart[item],
               name: item,
               quantity: quantity,
               calByWeight,
@@ -171,13 +172,13 @@ class App extends Component {
               discount
             },
             total: {
-              ...this.state.cart.total,
-              quantity: (this.state.cart.total.quantity += quantity),
-              price: (this.state.cart.total.price += quantity * pricePerUnit),
-              discount
+              ...prevState.cart.total,
+              quantity: (prevState.cart.total.quantity += quantity),
+              price: (prevState.cart.total.price += quantity * pricePerUnit),
+              discount: (prevState.cart.total.discount += discount)
             }
           }
-        },
+        }),
         () => {
           console.log("current cart updated to=", this.state.cart);
         }
@@ -211,6 +212,19 @@ class App extends Component {
   };
 
   resetCart = () => {
+    this.setState(
+      {
+        ...this.state,
+        cart: { total: { quantity: 0, price: 0 } }
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+
+  applyCoupon = () => {
+    let final_amount = 0;
     this.setState(
       {
         ...this.state,
