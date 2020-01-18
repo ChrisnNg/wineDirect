@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SideNav, {
-  Toggle,
-  Nav as RNav,
-  NavItem,
-  NavIcon,
-  NavText
-} from "@trendmicro/react-sidenav";
+import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav";
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 
 import Nav from "./Components/Nav.js";
@@ -21,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = this.intialState();
+    this.state = { ...this.intialState(), cart: null };
   }
 
   intialState() {
@@ -48,6 +42,18 @@ class App extends Component {
     this.setState(this.intialState(), () => {
       console.log("state", this.state);
     });
+  };
+
+  addToCart = (item, quantitity) => {
+    this.setState(
+      {
+        ...this.state,
+        cart: { item: { name: item, quantitity } }
+      },
+      () => {
+        console.log("current cart updated to=", this.state.cart);
+      }
+    );
   };
 
   handleSelection = selected => {
@@ -90,6 +96,7 @@ class App extends Component {
               </NavIcon>
               <NavText>Home</NavText>
             </NavItem>
+
             <NavItem eventKey="charts">
               <NavIcon>
                 <i
@@ -97,13 +104,25 @@ class App extends Component {
                   style={{ fontSize: "1.75em" }}
                 />
               </NavIcon>
+
               <NavText>Manager Reports</NavText>
               <NavItem eventKey="Reports/Sales">
                 <NavText>Today's Sales</NavText>
               </NavItem>
+
               <NavItem eventKey="Reports/Expenses">
                 <NavText>Today's Expenses</NavText>
               </NavItem>
+            </NavItem>
+
+            <NavItem eventKey="Logout">
+              <NavIcon>
+                <i
+                  className="fas fa-sign-out-alt"
+                  style={{ fontSize: "1.75em" }}
+                />
+              </NavIcon>
+              <NavText>Logout</NavText>
             </NavItem>
           </SideNav.Nav>
         </SideNav>
@@ -120,7 +139,7 @@ class App extends Component {
           </div>
           {this.state.isEmptyState && <Home trigger={this.changeState} />}
           {this.state["Fruits and Vegetables"] && (
-            <Vegies goHome={this.goHome} />
+            <Vegies goHome={this.goHome} addToCart={this.addToCart} />
           )}
         </section>
       </div>

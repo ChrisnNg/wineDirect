@@ -1,5 +1,5 @@
 import React from "react";
-import { CardDeck, Button } from "react-bootstrap";
+import { CardDeck, Card, Button } from "react-bootstrap";
 
 import spinach from "./spinach.jpg";
 import avocado from "./avocado.jpg";
@@ -8,53 +8,66 @@ import lettuce from "./lettuce.jpg";
 import eggplant from "./eggplant.jpg";
 import broccoli from "./broccoli.jpg";
 
-import Card from "../../Helpers/Card.js";
-
 export default function(props) {
   console.log("veggie props=", props);
 
-  function handleClick() {
-    console.log("clicked");
+  function handleClick(item) {
+    console.log("click handled", item, props);
+    props.addToCart(item, 1);
   }
 
   return (
     <section>
-      <div>vegie section</div>
+      <div>Vegie section</div>
       <Button onClick={() => props.goHome()}>Return</Button>
 
       <CardDeck>
         <Card
-          title="Spinach"
-          img={spinach}
-          onClick={() => handleClick("Fruits and Vegetables")}
-        />
+          body={false}
+          onClick={() => {
+            handleClick("Spinach");
+          }}
+        >
+          <Card.Img variant="top" src={spinach} />
+          <Card.Body>
+            <Card.Title>Spinach</Card.Title>
+          </Card.Body>
+        </Card>
 
-        <Card
-          title="Avocado"
-          img={avocado}
-          onClick={() => handleClick("Fruits and Vegetables")}
-        />
+        <Card body={false}>
+          <Card.Img variant="top" src={avocado} />
+          <Card.Body>
+            <Card.Title>Avocado</Card.Title>
+          </Card.Body>
+        </Card>
 
-        <Card
-          title="Carrot"
-          img={carrot}
-          onClick={() => handleClick("Fruits and Vegetables")}
-        />
-        <Card
-          title="Lettuce"
-          img={lettuce}
-          onClick={() => handleClick("Fruits and Vegetables")}
-        />
-        <Card
-          title="Eggplant"
-          img={eggplant}
-          onClick={() => handleClick("Fruits and Vegetables")}
-        />
-        <Card
-          title="Broccoli"
-          img={broccoli}
-          onClick={() => handleClick("Fruits and Vegetables")}
-        />
+        <Card body={false}>
+          <Card.Img variant="top" src={carrot} />
+          <Card.Body>
+            <Card.Title>Carrot</Card.Title>
+          </Card.Body>
+        </Card>
+
+        <Card body={false}>
+          <Card.Img variant="top" src={lettuce} />
+          <Card.Body>
+            <Card.Title>Carrot</Card.Title>
+          </Card.Body>
+        </Card>
+
+        <Card body={false}>
+          <Card.Img variant="top" src={eggplant} />
+          <Card.Body>
+            <Card.Title>Eggplant</Card.Title>
+          </Card.Body>
+        </Card>
+
+        <Card body={false}>
+          <Card.Img variant="top" src={broccoli} />
+          <Card.Body>
+            <Card.Title>Broccoli</Card.Title>
+          </Card.Body>
+        </Card>
       </CardDeck>
     </section>
   );
