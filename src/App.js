@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Nav from "./Components/Nav.js";
 import Home from "./Components/Home.js";
-import Vegies from "./Components/Vegies.js";
+import Vegies from "./Components/Vegies/Vegies.js";
 
 class App extends Component {
   constructor(props) {
