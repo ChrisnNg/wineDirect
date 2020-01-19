@@ -5,7 +5,11 @@ import { Nav, Navbar, Badge } from "react-bootstrap";
 export default function(props) {
   return (
     <Navbar bg="dark">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand
+        onClick={() => {
+          props.handleClick();
+        }}
+      >
         <img
           src={require("./Walmart_logo.svg")}
           width="90"

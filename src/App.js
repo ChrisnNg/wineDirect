@@ -122,7 +122,10 @@ class App extends Component {
               ...prevState.cart.total,
               quantity: (prevState.cart.total.quantity += quantity),
               price: (prevState.cart.total.price += quantity * pricePerUnit),
-              discount: (prevState.cart.total.discount += discount)
+              discount:
+                sale.validTill - Date.now() >= 0
+                  ? (prevState.cart.total.discount += discount)
+                  : (prevState.cart.total.discount += 0)
             }
           }
         }),
@@ -174,7 +177,10 @@ class App extends Component {
               ...prevState.cart.total,
               quantity: (prevState.cart.total.quantity += quantity),
               price: (prevState.cart.total.price += quantity * pricePerUnit),
-              discount: (prevState.cart.total.discount += discount)
+              discount:
+                sale.validTill - Date.now() >= 0
+                  ? (prevState.cart.total.discount += discount)
+                  : (prevState.cart.total.discount += 0)
             }
           }
         }),
@@ -349,6 +355,7 @@ class App extends Component {
           <Nav
             count={this.state.cart.total.quantity}
             openCart={this.openCart}
+            handleClick={this.goHome}
           />
 
           <Checkout
