@@ -25,6 +25,10 @@ The goal of this exercise is to evaluate your coding style and OO design skills.
 
 4. A cash register infers that for the checkout: we enter the cost, the amount of money taken, and return the amount of change to return to the customer.
 
+### Final Product
+![home-page](./public/home-page.png)
+![veggie-page](./public/veggie-page.png)
+
 ### Quickstart guide
 
 Run 
