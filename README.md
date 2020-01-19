@@ -1,3 +1,7 @@
+# WineDirect assignment
+
+Time to complete: 48 hours
+
 In this sample you will implement a grocery store cash register. Given a number of items you will be required to calculate the total bill. Items are priced a few of different ways:
 
 A given price for each item, eg. Boxes of Cheerios are $6.99 each
@@ -8,15 +12,28 @@ Items can be on sale, where you might receive bulk discounts, eg. Buy two get on
 
 Coupons are also available to get money off the bill when the total amount is above a threshold, eg.$5 off when you spend $100 or more
 
-The goal of this exercise is to evaluate your coding style and OO design skills. Please send us a zip file of all the source code and project files
+The goal of this exercise is to evaluate your coding style and OO design skills. 
 
 
-Assumptions-
+### Assumptions-
 
-Create a Grocery-store - Point of sales system.
+1. Create a Grocery-store cash register - Point of sales system.
 
-Mobile view is out of scope as unnecessary for a POS. Expect general view width to be roughly the size of a tablet.
+2. Mobile view is functional but not focused as not typically used for a POS. Expect general view width to be at least the size of a small tablet.
 
-Expect to be using a single measurement to weigh products. All products will be weighed using lb.
+3. Expect to be using a single measurement to weigh products. All products will be weighed using lb. Expect that cashier manually keys in weight of produce.
 
-A cash register infers that for the checkout: we enter the cost, the amount of money taken, and return the amount of change to return to the customer.
+4. A cash register infers that for the checkout: we enter the cost, the amount of money taken, and return the amount of change to return to the customer.
+
+### Quickstart guide
+
+Run 
+
+```
+npm i
+```
+Start the server with 
+```
+npm start
+```
+Navigate and view the site at [localhost:3000](localhost:3000)
