@@ -57,7 +57,7 @@ export default function(props) {
         <i className="fas fa-chevron-left" />
       </Button>
 
-      <CardGroup className="align-center">
+      <CardGroup className="align-center narrow">
         {CardBuilder(itemList, addToCart, itemCart)}
       </CardGroup>
     </section>

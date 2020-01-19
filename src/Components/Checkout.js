@@ -67,7 +67,11 @@ export default function(props) {
         >
           Reset Cart
         </Button>
-        <Button variant="secondary" onClick={props.closeCart}>
+        <Button
+          className="unnecessary"
+          variant="secondary"
+          onClick={props.closeCart}
+        >
           Close
         </Button>
         <Form onSubmit={handleCheckout} className="form-checkout">

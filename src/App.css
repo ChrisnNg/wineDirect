@@ -90,3 +90,17 @@ background: linear-gradient(#db3d44, white) !important;
   bottom: 38px;
   left: 155px;
 }
+
+@media only screen and (max-width: 465px) {
+  .unnecessary {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .button-checkout {
+    position: relative;
+    bottom: 38px;
+    left: 100px;
+  }
+}
