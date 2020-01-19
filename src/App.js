@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav";
@@ -360,11 +359,6 @@ class App extends Component {
             applyCoupon={this.applyCoupon}
             appliedCoupons={this.state.couponsUsed}
           />
-
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to React</h2>
-          </div>
 
           {this.state.isEmptyState && <Home trigger={this.changeState} />}
           {this.state["Fruits and Vegetables"] && (

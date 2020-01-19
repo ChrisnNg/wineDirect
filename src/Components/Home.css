@@ -34,10 +34,14 @@ div .card {
 }
 
 .back-btn {
-  z-index: 1000;
+  position: relative;
+  z-index: 2;
 }
 
 .card-shift-up {
   position: relative;
   bottom: 40px;
+}
+.sale-text {
+  font-size: 11pt;
 }

@@ -58,7 +58,9 @@ function BuildCard(props) {
                 {props.sale.validTill.toLocaleDateString(undefined, options)}
               </Badge>
               <br />
-              <span className="card-shift-up">{props.sale.desc}</span>
+              <span className="card-shift-up text-muted sale-text">
+                {props.sale.desc}
+              </span>
 
               <br />
             </React.Fragment>
