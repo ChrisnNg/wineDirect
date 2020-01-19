@@ -38,6 +38,7 @@
 .align-left {
   position: absolute;
   left: 17px;
+  bottom: 12px;
 }
 
 .form-add {
@@ -54,4 +55,24 @@
   margin-left: 10vw;
   margin-right: 10vw;
   margin-top: 5vh
+}
+
+.sidenav {
+background: linear-gradient(#db3d44, white) !important;
+
+}
+
+.form-coupon {
+  max-width: 125px;
+}
+
+.button-coupon {
+  position: relative;
+  bottom: 38px;
+  left: 130px
+}
+
+.btn-danger {
+  padding-left: 3px !important;
+  padding-right: 3px !important;
 }

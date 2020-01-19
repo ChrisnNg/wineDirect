@@ -22,15 +22,18 @@ export default function(props) {
       if (item !== "total") {
         html.push(
           <article key={key}>
-            {item} x {props.itemList[item].quantity} at $
-            {props.itemList[item].pricePerUnit}ea = $
-            {props.itemList[item].quantity * props.itemList[item].pricePerUnit}
+            {item} x {props.itemList[item].quantity}{" "}
+            {props.itemList[item].calByWeight ? "lb" : null} at $
+            {props.itemList[item].pricePerUnit.toFixed(2)} ea = $
+            {(
+              props.itemList[item].quantity * props.itemList[item].pricePerUnit
+            ).toFixed(2)}
             {props.itemList[item].discount ? (
               <React.Fragment>
                 <br />
                 {"    "}
                 <span className="text-muted indent">
-                  {"Saved $" + props.itemList[item].discount}
+                  {"Saved $" + props.itemList[item].discount.toFixed(2)}
                 </span>
               </React.Fragment>
             ) : null}
@@ -48,13 +51,15 @@ export default function(props) {
       <section className="cart">{generateHTML()}</section>
 
       <p>
-        Total # Items:{props.itemList.total.quantity} <br />
-        Subtotal: {props.itemList.total.price}
+        Total # Items: {props.itemList.total.quantity} <br />
+        Subtotal: ${props.itemList.total.price.toFixed(2)}
         <br />
         Coupons Applied: {returnCoupons(props.coupons)}
         <br />
-        Grand Total:{" "}
-        {props.itemList.total.price - props.itemList.total.discount}
+        Grand Total: $
+        {(props.itemList.total.price - props.itemList.total.discount).toFixed(
+          2
+        )}
       </p>
     </div>
   );

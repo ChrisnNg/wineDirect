@@ -46,6 +46,7 @@ export default function(props) {
       item: "carrot",
       image: carrot,
       pricePerUnit: 2.15,
+      calByWeight: true,
       sale: {
         code: 2,
         validTill: new Date(Date.UTC(2019, 12, 20, 3, 0, 0)),
@@ -65,6 +66,7 @@ export default function(props) {
     {
       item: "eggplant",
       image: eggplant,
+      calByWeight: true,
       pricePerUnit: 4.0,
       sale: {
         code: 3,
@@ -85,6 +87,7 @@ export default function(props) {
     {
       item: "apple",
       image: apple,
+      calByWeight: true,
       pricePerUnit: 3.0,
       sale: {
         code: 2,

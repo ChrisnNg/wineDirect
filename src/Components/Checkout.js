@@ -23,15 +23,15 @@ export default function(props) {
       </Modal.Header>
       <Modal.Body>
         <Cart itemList={props.cart} coupons={props.appliedCoupons} />
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="form-coupon">
           <Form.Control
             type="number"
             value={value}
             onChange={handleChange}
             step={"any"}
           />
-          <Button variant="secondary" type="submit">
-            Apply Coupons
+          <Button variant="primary" type="submit" className="button-coupon">
+            <i className="fas fa-plus" />
           </Button>
         </Form>
       </Modal.Body>

@@ -297,6 +297,7 @@ class App extends Component {
           onToggle={toggle => {
             this.setState({ sidenavToggled: !this.state.sidenavToggled });
           }}
+          className={"sidenav"}
         >
           <SideNav.Toggle />
           <SideNav.Nav defaultSelected="Home">
