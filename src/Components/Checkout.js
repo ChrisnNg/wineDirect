@@ -46,6 +46,7 @@ export default function(props) {
         <Cart itemList={props.cart} coupons={props.appliedCoupons} />
         <Form onSubmit={handleSubmit} className="form-coupon">
           <Form.Control
+            required
             type="number"
             value={value}
             onChange={handleChange}
@@ -74,6 +75,7 @@ export default function(props) {
         </Button>
         <Form onSubmit={handleCheckout} className="form-checkout">
           <Form.Control
+            required
             type="number"
             value={moneyRecieved}
             onChange={handleMoneyRecieved}
