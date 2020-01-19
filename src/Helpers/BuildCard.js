@@ -90,10 +90,6 @@ export default function CardBuilder(itemList, addItem, itemCart) {
   let count = 0;
 
   for (const item of itemList) {
-    if (itemCart[item]) {
-      console.log(itemCart[item]);
-    }
-
     html.push(
       <BuildCard
         key={count}
