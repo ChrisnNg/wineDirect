@@ -36,6 +36,7 @@ div .card {
 .back-btn {
   position: relative;
   z-index: 2;
+  margin-top: 30px;
 }
 
 .card-shift-up {
@@ -44,4 +45,17 @@ div .card {
 }
 .sale-text {
   font-size: 11pt;
+}
+
+.banner {
+  max-height: 30vh;
+
+}
+.carousel-caption {
+  font-weight: 700;
+}
+
+.center {
+  position: relative;
+  align-items: center;
 }
