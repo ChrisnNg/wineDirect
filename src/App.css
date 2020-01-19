@@ -77,3 +77,16 @@ background: linear-gradient(#db3d44, white) !important;
   padding-left: 3px !important;
   padding-right: 3px !important;
 }
+
+.form-checkout {
+  position: absolute;
+  max-width: 150px;
+  bottom: -26px;
+  left: 105px;
+}
+
+.button-checkout {
+  position: relative;
+  bottom: 38px;
+  left: 155px;
+}

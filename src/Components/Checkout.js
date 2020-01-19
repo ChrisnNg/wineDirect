@@ -26,14 +26,17 @@ export default function(props) {
   function handleCheckout(event) {
     event.preventDefault();
 
+    //some other function here that collects the data for the reciept and handles it
+
     toast(
-      "Return to Customer $" +
+      "Transaction Completed! Return to Customer $" +
         -1 *
           (
             props.cart.total.price -
             props.cart.total.discount -
             moneyRecieved
-          ).toFixed(2)
+          ).toFixed(2),
+      { autoClose: 15000 }
     );
   }
   return (
@@ -67,8 +70,7 @@ export default function(props) {
         <Button variant="secondary" onClick={props.closeCart}>
           Close
         </Button>
-
-        <Form onSubmit={handleCheckout} className="form-coupon">
+        <Form onSubmit={handleCheckout} className="form-checkout">
           <Form.Control
             type="number"
             value={moneyRecieved}
@@ -76,7 +78,7 @@ export default function(props) {
             step={2}
             placeholder="Money Recieved"
           />
-          <Button variant="primary" type="submit">
+          <Button className="button-checkout" variant="primary" type="submit">
             Checkout
           </Button>
         </Form>
