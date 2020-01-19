@@ -18,6 +18,7 @@ div .card {
 .card-group {
   display: flex;
   flex-flow: row wrap;
+  width: 80%;
 }
 
 .badge-sale-tag {
@@ -36,7 +37,7 @@ div .card {
 .back-btn {
   position: relative;
   z-index: 2;
-  margin-top: 30px;
+  margin-top: 30px  ;
 }
 
 .card-shift-up {
@@ -58,4 +59,8 @@ div .card {
 .center {
   position: relative;
   align-items: center;
+}
+
+.narrow {
+  width: 50%;
 }
