@@ -15,10 +15,8 @@ Assumptions-
 
 Create a Grocery-store - Point of sales system.
 
-Connection to a backend so that # of items sold and quantity is persistent.
-
-Because the goal of this exercise is to evaluate my coding style and OO design skills, i will assume that an administrative panel will be out of scope.
-
 Mobile view is out of scope as unnecessary for a POS. Expect general view width to be roughly the size of a tablet.
 
 Expect to be using a single measurement to weigh products. All products will be weighed using lb.
+
+A cash register infers that for the checkout: we enter the cost, the amount of money taken, and return the amount of change to return to the customer.
