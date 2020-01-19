@@ -2,8 +2,6 @@ import React from "react";
 import "./Cart.css";
 
 export default function(props) {
-  console.log("props from cart", props);
-
   function returnCoupons(couponArray) {
     let html = [];
 

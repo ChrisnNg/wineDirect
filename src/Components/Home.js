@@ -11,7 +11,6 @@ import bread from "../Assets/bread.jpg";
 
 export default function(props) {
   function handleClick(item) {
-    console.log("click handled", item, props);
     props.trigger(item);
   }
 

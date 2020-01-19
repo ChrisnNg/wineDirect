@@ -43,22 +43,15 @@ class App extends Component {
   }
 
   changeState = component => {
-    this.setState(
-      {
-        ...this.state,
-        isEmptyState: false,
-        [component]: true
-      },
-      () => {
-        console.log("state", this.state, component);
-      }
-    );
+    this.setState({
+      ...this.state,
+      isEmptyState: false,
+      [component]: true
+    });
   };
 
   goHome = () => {
-    this.setState(this.intialState(), () => {
-      console.log("state", this.state);
-    });
+    this.setState(this.intialState());
   };
 
   addToCart = (item, quantity, calByWeight, pricePerUnit, sale) => {
@@ -111,41 +104,33 @@ class App extends Component {
         }
       }
 
-      this.setState(
-        prevState => ({
-          ...prevState,
-          cart: {
-            ...prevState.cart,
-            [item]: {
-              ...prevState.cart[item],
-              name: item,
-              quantity: (prevState.cart[item].quantity += quantity),
-              totalPrice:
-                prevState.cart[item].quantity *
-                prevState.cart[item].pricePerUnit,
-              discount:
-                sale.validTill - Date.now() >= 0
-                  ? (prevState.cart[item].discount += discount)
-                  : null
-            },
-            total: {
-              ...prevState.cart.total,
-              quantity: (prevState.cart.total.quantity += quantity),
-              price: (prevState.cart.total.price += quantity * pricePerUnit),
-              discount:
-                sale.validTill - Date.now() >= 0
-                  ? (prevState.cart.total.discount += discount)
-                  : (prevState.cart.total.discount += 0)
-            }
+      this.setState(prevState => ({
+        ...prevState,
+        cart: {
+          ...prevState.cart,
+          [item]: {
+            ...prevState.cart[item],
+            name: item,
+            quantity: (prevState.cart[item].quantity += quantity),
+            totalPrice:
+              prevState.cart[item].quantity * prevState.cart[item].pricePerUnit,
+            discount:
+              sale.validTill - Date.now() >= 0
+                ? (prevState.cart[item].discount += discount)
+                : null
+          },
+          total: {
+            ...prevState.cart.total,
+            quantity: (prevState.cart.total.quantity += quantity),
+            price: (prevState.cart.total.price += quantity * pricePerUnit),
+            discount:
+              sale.validTill - Date.now() >= 0
+                ? (prevState.cart.total.discount += discount)
+                : (prevState.cart.total.discount += 0)
           }
-        }),
-        () => {
-          console.log("current cart updated to=", this.state.cart);
         }
-      );
+      }));
     } else {
-      console.log("new item added to cart");
-
       switch (sale.code) {
         case 1:
           if (quantity % 2 === 0) {
@@ -168,42 +153,35 @@ class App extends Component {
         default:
       }
 
-      this.setState(
-        prevState => ({
-          ...prevState,
-          cart: {
-            ...prevState.cart,
-            [item]: {
-              ...prevState.cart[item],
-              name: item,
-              quantity: quantity,
-              calByWeight,
-              pricePerUnit,
-              totalPrice: quantity * pricePerUnit,
-              sale,
-              discount: sale.validTill - Date.now() >= 0 ? discount : null
-            },
-            total: {
-              ...prevState.cart.total,
-              quantity: (prevState.cart.total.quantity += quantity),
-              price: (prevState.cart.total.price += quantity * pricePerUnit),
-              discount:
-                sale.validTill - Date.now() >= 0
-                  ? (prevState.cart.total.discount += discount)
-                  : (prevState.cart.total.discount += 0)
-            }
+      this.setState(prevState => ({
+        ...prevState,
+        cart: {
+          ...prevState.cart,
+          [item]: {
+            ...prevState.cart[item],
+            name: item,
+            quantity: quantity,
+            calByWeight,
+            pricePerUnit,
+            totalPrice: quantity * pricePerUnit,
+            sale,
+            discount: sale.validTill - Date.now() >= 0 ? discount : null
+          },
+          total: {
+            ...prevState.cart.total,
+            quantity: (prevState.cart.total.quantity += quantity),
+            price: (prevState.cart.total.price += quantity * pricePerUnit),
+            discount:
+              sale.validTill - Date.now() >= 0
+                ? (prevState.cart.total.discount += discount)
+                : (prevState.cart.total.discount += 0)
           }
-        }),
-        () => {
-          console.log("current cart updated to=", this.state.cart);
         }
-      );
+      }));
     }
   };
 
   handleSelection = selected => {
-    console.log(selected);
-
     switch (selected) {
       case "Home":
         this.goHome();
@@ -227,26 +205,17 @@ class App extends Component {
   };
 
   resetCart = () => {
-    this.setState(
-      {
-        ...this.state,
-        cart: { total: { quantity: 0, price: 0 } }
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      ...this.state,
+      cart: { total: { quantity: 0, price: 0, discount: 0 } },
+      couponsUsed: []
+    });
   };
 
   applyCoupon = couponCode => {
-    console.log(couponCode);
     let coupon_amount = 0;
     let coupon_code = null;
 
-    console.log(
-      "does coupon exist in used array",
-      !this.state.couponsUsed.includes("100")
-    );
     switch (couponCode) {
       case "100":
         //Coupon for purchases $100 and up

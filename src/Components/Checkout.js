@@ -7,8 +7,6 @@ export default function(props) {
   const [value, setValue] = useState("");
   const [moneyRecieved, setmoneyRecieved] = useState("");
 
-  console.log("cart-props=", props);
-
   function handleSubmit(event) {
     event.preventDefault();
     props.applyCoupon(value);
