@@ -1,6 +1,6 @@
 # WineDirect assignment
 
-Time to complete: 48 hours
+Time alloted: 48 hours
 
 In this sample you will implement a grocery store cash register. Given a number of items you will be required to calculate the total bill. Items are priced a few of different ways:
 
@@ -26,6 +26,9 @@ The goal of this exercise is to evaluate your coding style and OO design skills.
 4. A cash register infers that for the checkout: we enter the cost, the amount of money taken, and return the amount of change to return to the customer.
 
 ### Final Product
+
+Hosted [Here on Netlify](https://zen-joliot-f34c37.netlify.com/)
+
 ![home-page](./public/home-page.png)
 ![veggie-page](./public/veggie-page.png)
 
