@@ -119,7 +119,6 @@ export default function(props) {
 
   return (
     <section>
-      <div>Vegies</div>
       <Carousel>
         <Carousel.Item>
           <img className="banner" src={vegetables} alt="vegetables" />

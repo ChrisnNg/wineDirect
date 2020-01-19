@@ -8,6 +8,11 @@ import Nav from "./Components/Nav.js";
 import Home from "./Components/Home.js";
 
 import Vegies from "./Components/Vegies/Vegies.js";
+import Dairy from "./Components/Dairy/Dairy.js";
+import Meat from "./Components/Meat/Meat.js";
+import Pantry from "./Components/Pantry/Pantry.js";
+import Frozen from "./Components/Frozen/Frozen.js";
+import Bread from "./Components/Bread/Bread.js";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,7 +33,12 @@ class App extends Component {
   intialState() {
     return {
       isEmptyState: true,
-      "Fruits and Vegetables": false
+      "Fruits and Vegetables": false,
+      "Dairy and Eggs": false,
+      "Meat and Seafood": false,
+      "Pantry Food": false,
+      "Frozen Food": false,
+      Bread: false
     };
   }
 
@@ -371,6 +381,41 @@ class App extends Component {
           {this.state.isEmptyState && <Home trigger={this.changeState} />}
           {this.state["Fruits and Vegetables"] && (
             <Vegies
+              goHome={this.goHome}
+              addToCart={this.addToCart}
+              itemCart={this.state.cart}
+            />
+          )}
+          {this.state["Dairy and Eggs"] && (
+            <Dairy
+              goHome={this.goHome}
+              addToCart={this.addToCart}
+              itemCart={this.state.cart}
+            />
+          )}
+          {this.state["Meat and Seafood"] && (
+            <Meat
+              goHome={this.goHome}
+              addToCart={this.addToCart}
+              itemCart={this.state.cart}
+            />
+          )}
+          {this.state["Pantry Food"] && (
+            <Pantry
+              goHome={this.goHome}
+              addToCart={this.addToCart}
+              itemCart={this.state.cart}
+            />
+          )}
+          {this.state["Frozen Food"] && (
+            <Frozen
+              goHome={this.goHome}
+              addToCart={this.addToCart}
+              itemCart={this.state.cart}
+            />
+          )}
+          {this.state["Bread"] && (
+            <Bread
               goHome={this.goHome}
               addToCart={this.addToCart}
               itemCart={this.state.cart}
