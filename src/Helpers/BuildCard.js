@@ -79,7 +79,9 @@ function BuildCard(props) {
         </Card.Title>
       </Card.Body>
       <Card.Footer className="text-muted card-shift-up">
-        {props.currentQuantity.toFixed(2)} <br />
+        {props.calByWeight ? null : "x"} {props.currentQuantity.toFixed(2)}{" "}
+        {props.calByWeight ? "lb's" : null}
+        <br />
         <Form onSubmit={handleSubmit}>
           <Form.Control
             required
