@@ -51,14 +51,14 @@ export default function(props) {
     <section>
       <Carousel>
         <Carousel.Item>
-          <img className="banner" src={cheese} alt="white_rye" />
+          <img className="banner" src={cheese} alt="cheese" />
           <Carousel.Caption>
             <h3>Dairy</h3>
             <p>Cheesey and Holey.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="banner" src={milk} alt="wheat" />
+          <img className="banner" src={milk} alt="milk" />
           <Carousel.Caption>
             <h3>Dairy</h3>
             <p>Milky.</p>
