@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-import { CardGroup, Card, Carousel, Button } from "react-bootstrap";
+import { CardGroup, Card, Carousel } from "react-bootstrap";
 import veggie from "../Assets/pile-of-veggies.png";
 import dairy from "../Assets/Eggs-milk-and-cheese.jpg";
 import meat from "../Assets/meat-seafood.jpg";

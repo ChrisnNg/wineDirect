@@ -65,12 +65,24 @@ function BuildCard(props) {
               <br />
             </React.Fragment>
           )}
+          <br />
+          <Badge
+            className={
+              props.sale.validTill - Date.now() >= 0
+                ? "item-price-sale"
+                : "item-price"
+            }
+            variant="success"
+          >
+            ${props.pricePerUnit} {props.calByWeight ? "per lb" : "ea"}
+          </Badge>
         </Card.Title>
       </Card.Body>
       <Card.Footer className="text-muted card-shift-up">
         {props.currentQuantity.toFixed(2)} <br />
         <Form onSubmit={handleSubmit}>
           <Form.Control
+            required
             type="number"
             value={value}
             onChange={handleChange}

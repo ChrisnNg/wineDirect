@@ -5,7 +5,7 @@ export default function(props) {
   function returnCoupons(couponArray) {
     let html = [];
 
-    couponArray.map((coupon, index) => {
+    couponArray.forEach((coupon, index) => {
       if (coupon) {
         html.push(<span key={index}>#{coupon} </span>);
       }

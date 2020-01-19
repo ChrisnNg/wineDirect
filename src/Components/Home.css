@@ -67,3 +67,13 @@ div .card {
 .carousel {
   margin-top: 25px;
 }
+
+.item-price {
+position: relative;
+bottom: 50px;
+}
+.item-price-sale {
+  position: absolute;
+  top: 119px;
+  left: 20px;
+}
