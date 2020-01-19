@@ -80,10 +80,15 @@ export default function(props) {
 
   return (
     <section>
-      <div>Vegie section</div>
-      <Button onClick={() => props.goHome()}>Return</Button>
+      <div>Vegies</div>
 
-      <CardGroup>{CardBuilder(itemList, addToCart, itemCart)}</CardGroup>
+      <Button className="back-btn" onClick={() => props.goHome()}>
+        <i className="fas fa-chevron-left" />
+      </Button>
+
+      <CardGroup className="align-center">
+        {CardBuilder(itemList, addToCart, itemCart)}
+      </CardGroup>
     </section>
   );
 }

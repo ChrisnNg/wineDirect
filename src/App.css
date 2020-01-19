@@ -49,3 +49,8 @@
   padding-left: 3px !important;
   padding-right: 3px !important;
 }
+
+.align-center {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}

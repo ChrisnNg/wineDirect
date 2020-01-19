@@ -26,9 +26,7 @@ function BuildCard(props) {
   }
 
   const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric"
   };
 
@@ -52,18 +50,22 @@ function BuildCard(props) {
           {firstToUpper(props.item)}
           {props.sale && props.sale.validTill - Date.now() >= 0 && (
             <React.Fragment>
-              <Badge className="badge-sale" variant="secondary">
+              <Badge className="badge-sale-tag" variant="secondary">
                 Sale!
               </Badge>
+              <Badge className="badge-sale-expiration" variant="primary">
+                Until{" "}
+                {props.sale.validTill.toLocaleDateString(undefined, options)}
+              </Badge>
               <br />
-              {props.sale.desc}
-              Expires:{" "}
-              {props.sale.validTill.toLocaleDateString(undefined, options)}
+              <span className="card-shift-up">{props.sale.desc}</span>
+
+              <br />
             </React.Fragment>
           )}
         </Card.Title>
       </Card.Body>
-      <Card.Footer className="text-muted">
+      <Card.Footer className="text-muted card-shift-up">
         {props.currentQuantity.toFixed(2)} <br />
         <Form onSubmit={handleSubmit}>
           <Form.Control

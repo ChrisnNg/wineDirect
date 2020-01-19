@@ -4,7 +4,7 @@ div .card {
   max-width: 128px;
 }
 
-.card:hover {
+.card:hover .card-img-top{
   opacity: 0.8;
   transition: 0.2s;
 }
@@ -20,7 +20,24 @@ div .card {
   flex-flow: row wrap;
 }
 
-.badge-sale {
+.badge-sale-tag {
   background: red;
   position: relative;
+  bottom: 205px;
+  left: 60px;
+  z-index: 1;
+}
+
+.badge-sale-expiration {
+  position: relative;
+  bottom: 80px;
+}
+
+.back-btn {
+  z-index: 1000;
+}
+
+.card-shift-up {
+  position: relative;
+  bottom: 40px;
 }
